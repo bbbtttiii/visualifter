@@ -1,5 +1,5 @@
 # visualifter
-A weightlifting visualizer: Build and view workout "blocks" in real time.
+A weightlifting visualizer: Build and organize workout "blocks" in real time.
 
 ## Getting Started
 
@@ -8,7 +8,7 @@ A weightlifting visualizer: Build and view workout "blocks" in real time.
 - Run `rails db:migrate`
 - Run `rails db:seed`
 - Run `rails s`
-- Head to `index.html` in your browser
+- Go to `index.html` in your browser
 
 ## Features
 
