@@ -1,5 +1,5 @@
 # visualifter
-A weightlifting visualizer: Build and organize workout "blocks" in real time.
+A weightlifting visualizer: Build and organize workout "blocks".
 
 ## Getting Started
 
