@@ -5,13 +5,29 @@ class WorkoutsController < ApplicationController
         render json: workouts
     end
 
-    def show
-        workout = Workout.find(params[:id])
+    def create
+        workout = Workout.create(workout_params)
         render json: workout
     end
 
-    def create
-        
+    def show
+        workout = Workout.find(params[:id])
+        render json: workout, include: ['blocks']
+    end
+
+    def blocks
+        block = Block.find(params[:id])
+        render json: workout.blocks
+    end
+
+    def update 
+        workout = Workout.find(params[:id])
+        workout.update(workout_params)
+        if workout.save
+            render json: workout
+        else
+            #render error
+        end
     end
 
     def destroy
@@ -22,7 +38,7 @@ class WorkoutsController < ApplicationController
     private
 
     def workout_params
-        params.require(:workout).permit(:name)
+        params.require(:workout).permit(:name, :blocks)
     end
 
 end
