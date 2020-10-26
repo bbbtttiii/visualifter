@@ -22,7 +22,7 @@ makeBlock(3, 12, 35, "curls");
 makeBlock(3, 5, 75, "incline bench press");
 makeBlock(1, 3, 305, "squat")
 
-//set, rep, weight//
+//set, rep, weight, exercise//
 
 
 var draggableElements = document.getElementsByClassName('block');
@@ -60,3 +60,5 @@ function dragElement(elmnt) {
         document.onmousemove = null;
     }
 }
+
+document.getElementById('form').addEventListener("submit", Block.createBlock)

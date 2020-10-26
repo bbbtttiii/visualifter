@@ -1,16 +1,18 @@
-// class Api {
-//     constructor() {
-//         this.baseUrl = `https://localhost:3000`;
-//     }
+class Api {
+    constructor() {
+        this.baseUrl = `http://localhost:3000`;
+    }
 
-//     // update(id, body) {
-//     //     return fetch(`${this.baseUrl}/${id}`, {
-//     //       method: 'PATCH',
-//     //       headers: {
-//     //         'Content-Type': 'application/json',
-//     //         Accept: 'application/json'
-//     //       },
-//     //       body: JSON.stringify(body),
-//     //     }).then(res=>res.json());
-//     //   }
-// }
+    createBlock(formValues) {
+        const newBlock = {block: formValues};
+        fetch(`${this.baseUrl}/blocks`, {
+            method: "POST", 
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(newBlock)
+        })
+        .then(response => response.json())
+    }
+}

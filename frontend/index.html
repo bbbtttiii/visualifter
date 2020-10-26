@@ -13,15 +13,15 @@
 
         <div class="sidebar">
             <h3 class="sidebar-item">Menu</h3>
-            <form class="sidebar-item">
+            <form id="form">
                 <label>Exercise</label><br>
-                <input type="text"><br><br>
+                <input type="text" id="exercise"><br><br>
                 <label>Repetitions</label><br>
-                <input type="text"><br><br>
+                <input type="text" id="reps"><br><br>
                 <label>Sets</label><br>
-                <input type="text"><br><br> 
+                <input type="text" id="sets"><br><br> 
                 <label>Weight</label><br>
-                <input type="text"><br><br>
+                <input type="text" id="weight"><br><br>
                 <input type="submit" value="Add"> 
                 <!-- 'add' should clear the form so user can add another -->
                 <br><br>
@@ -55,6 +55,8 @@
         
         
         <!-- other js files here -->
+        <script src="src/components/Block.js" async defer></script>
+        <script src="src/services/api.js" async defer></script>
         <script src="src/index.js" async defer></script>
     </body>
 </html>
