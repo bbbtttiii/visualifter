@@ -1,7 +1,7 @@
 :root {
     --grid-cols: 1;
     --grid-rows: 1;
-  }
+}
 
 body {
   margin: 0;
@@ -14,6 +14,7 @@ body {
   height:100%;
   width: 100%;
   float: left;
+  padding-left: 10px;
 }
 
 .sidebar {
@@ -31,11 +32,13 @@ body {
 .main {
   float:left;
   margin-left: 20%;
-  border: 5px solid black;
+  padding: 10px;
 }
   
 .block {
+  font-size: 12px;
   display: grid;
+  padding: 5px;
   position: absolute;
   background-color: lightblue;
   grid-gap: 0.5em;
@@ -43,14 +46,16 @@ body {
   grid-template-columns: repeat(var(--grid-cols), 1fr);
 }
 
-.grid-item {
+.block-item {
   border-radius: 50px;
   padding: 1em;
   background-color:#ddd;
-  border: 1px solid #ddd;
+  border: 1px solid #aaa;
   text-align: center;
 }
 
-.grid-label {
+.block-label {
+  text-align: center;
   font-size: 12px;
+  display:block;
 }

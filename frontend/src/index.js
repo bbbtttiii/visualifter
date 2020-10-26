@@ -1,29 +1,25 @@
-function makeBlock(reps, sets, weight) {
-    const container = document.getElementsByClassName('main')[0];
+function makeBlock(reps, sets, weight, exercise) {
+    let container = document.getElementsByClassName('main')[0];
     let block = document.createElement('div');
     block.className = 'block';
     block.style.setProperty('--grid-rows', reps);
     block.style.setProperty('--grid-cols', sets);
-    for (c = 0; c < (reps * sets); c++) {
+
+    for (c=0; c<(reps * sets); c++) {
       let cell = document.createElement('div');
       cell.innerText = weight;
-      container.appendChild(block)
-      block.appendChild(cell).className = 'grid-item';
+      container.appendChild(block);
+      block.appendChild(cell).className = 'block-item';
     }
+    
+    let label = document.createElement('span');
+    label.innerText = exercise;
+    block.appendChild(label).className = 'block-label';
 }
 
-// function makeBlock(reps, sets, weight) {
-  // block.style.setProperty('--grid-rows', reps);
-  // block.style.setProperty('--grid-cols', sets);
-  // for (c = 0; c < (reps * sets); c++) {
-  //   let cell = document.createElement("div");
-  //   cell.innerText = weight;
-  //   container.appendChild(block)
-  //   block.appendChild(cell).className = "grid-item";
-//   }
-// }
-
-makeBlock(5, 5, 185);
+makeBlock(5, 5, 185, "bench press");
+makeBlock(3, 12, 35, "curls");
+makeBlock(3, 5, 75, "incline bench press");
 
 //set, rep, weight//
 
@@ -32,14 +28,14 @@ makeBlock(5, 5, 185);
 
 var draggableElements = document.getElementsByClassName('block');
 
-for(var i = 0; i < draggableElements.length; i++){
+for(let i=0; i<draggableElements.length; i++){
     dragElement(draggableElements[i]);
 }
 
 function dragElement(elmnt) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
     elmnt.onmousedown = dragMouseDown;
-    
+
     function dragMouseDown(e) {
         e = e || window.event;
         pos3 = parseInt(e.clientX);
