@@ -6,8 +6,14 @@ class BlocksController < ApplicationController
     end
 
     def create
-        block = Block.find(params[:id])
-        render json: block
+        # binding.pry
+        block = Block.new(block_params)
+        binding.pry
+        if block.save
+            render json: block
+        else
+            #error
+        end
     end
 
     def update
