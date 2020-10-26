@@ -31,4 +31,4 @@ class BlocksController < ApplicationController
         params.require(:block).permit(:exercise, :weight, :reps, :sets, :workout_id)
     end
 
-end
+end         
