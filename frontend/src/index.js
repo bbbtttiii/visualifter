@@ -20,10 +20,9 @@ function makeBlock(reps, sets, weight, exercise) {
 makeBlock(5, 5, 185, "bench press");
 makeBlock(3, 12, 35, "curls");
 makeBlock(3, 5, 75, "incline bench press");
+makeBlock(1, 3, 305, "squat")
 
 //set, rep, weight//
-
-
 
 
 var draggableElements = document.getElementsByClassName('block');
@@ -33,7 +32,7 @@ for(let i=0; i<draggableElements.length; i++){
 }
 
 function dragElement(elmnt) {
-    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
     elmnt.onmousedown = dragMouseDown;
 
     function dragMouseDown(e) {
@@ -51,9 +50,9 @@ function dragElement(elmnt) {
         pos2 = pos4 - parseInt(e.clientY);
         pos3 = parseInt(e.clientX);
         pos4 = parseInt(e.clientY);
-        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+        elmnt.style.top = (elmnt.offsetTop - pos2) + 'px';
         console.log(elmnt.offsetTop)
-        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+        elmnt.style.left = (elmnt.offsetLeft - pos1) + 'px';
     }
 
     function closeDragElement() {
