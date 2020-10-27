@@ -1,4 +1,4 @@
-class Api {
+class Adapter {
     constructor() {
         this.baseUrl = `http://localhost:3000`;
     }
@@ -36,6 +36,7 @@ class Api {
     loadWorkout() {
         return fetch(this.baseUrl).then(res => res.json());
     }
+
 
 
 }

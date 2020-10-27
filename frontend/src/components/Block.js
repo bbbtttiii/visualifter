@@ -20,7 +20,7 @@ class Block {
             sets: document.getElementById('sets').value,
             weight: document.getElementById('weight').value
         };
-        new Api().createBlock(formValues).then(block => {
+        new Adapter().createBlock(formValues).then(block => {
             let newBlock = new Block(block);
             newBlock.renderBlock();
         });

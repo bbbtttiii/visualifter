@@ -13,9 +13,18 @@ class Workout {
         let formValue = {
             workout: document.getElementById('workout-input').value,
         };
-        new Api().createWorkout(formValue).then(workout => {
+        new Adapter().createWorkout(formValue).then(workout => {
             new Workout(workout);
         });
     }
+
+    // listWorkouts() {
+    //     document.getElementById('workout-list');
+    // }
+
+    // static loadWorkout() {
+
+    //     .then(response => {showSavedWorkouts(response)})
+    // }
 
 }
