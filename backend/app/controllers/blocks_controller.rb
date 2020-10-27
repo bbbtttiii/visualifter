@@ -16,9 +16,10 @@ class BlocksController < ApplicationController
     end
 
     def update
+        # binding.pry
         block = Block.find(params[:id]) 
         if block.update(block_params)
-            binding.pry
+            # binding.pry
             render json: block
         else
             #render error
