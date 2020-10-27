@@ -19,7 +19,7 @@ class Api {
 
     //create
     createWorkout(formValue) {
-        const newWorkout = {block: formValue};
+        const newWorkout = {workout: formValue};
         return fetch(`${this.baseUrl}/workouts`, {
             method: "POST", 
             headers: {
@@ -33,7 +33,7 @@ class Api {
 
     //read
     loadWorkout() {
-
+        return fetch(this.baseUrl).then(res => res.json());
     }
 
 

@@ -8,8 +8,15 @@ class Workout {
         Workout.allWorkouts.push(this);
     }
 
-    static createWorkout() {
-
+    static createWorkout(event) {
+        event.preventDefault();
+        let formValue = {
+            workout: document.getElementById('workout-input').value,
+        };
+        new Api().createWorkout(formValue).then(workout => {
+            let newWorkout = new Workout(workout);
+            newWorkout.renderBlock();
+        });
     }
 
 }
