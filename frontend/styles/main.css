@@ -10,7 +10,7 @@ body {
 
 .header {
   background-color: lightblue;
-  margin-left: 15%;
+  margin-left: 20%;
   height:100%;
   width: 100%;
   float: left;
@@ -25,14 +25,14 @@ body {
   top: 0;
   left: 0;
   overflow-x: hidden;
-  width: 15%;
+  width: 20%;
   background-color: #ddd;
   padding-left: 10px;
 }
 
 .main {
-  /* float:left; */
-  margin-left: 15%;
+  float:left;
+  margin-left: 20%;
   padding: 10px;
 }
 
