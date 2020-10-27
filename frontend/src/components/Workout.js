@@ -14,8 +14,7 @@ class Workout {
             workout: document.getElementById('workout-input').value,
         };
         new Api().createWorkout(formValue).then(workout => {
-            let newWorkout = new Workout(workout);
-            newWorkout.renderBlock();
+            new Workout(workout);
         });
     }
 

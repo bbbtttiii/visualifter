@@ -29,6 +29,7 @@ class Api {
             body: JSON.stringify(newWorkout)
         })
         .then(response => response.json())
+        
     }
 
     //read
