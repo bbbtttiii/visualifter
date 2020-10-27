@@ -26,18 +26,6 @@ class Block {
         });
     }
 
-    static resetBlockForm() {
-        let exercise = document.getElementById('exercise')
-        let reps = document.getElementById('reps')
-        let sets = document.getElementById('sets')
-        let weight = document.getElementById('weight')
-      
-        exercise.value = '';
-        reps.value = '';
-        sets.value = '';
-        weight.value = '';
-    }
-
     renderBlock() {
         let container = document.getElementsByClassName('main')[0];
 
@@ -58,6 +46,13 @@ class Block {
         block.appendChild(label).className = 'block-label';
         Block.drag();
         Block.resetBlockForm();
+    }
+
+    static resetBlockForm() {
+        let exercise = document.getElementById('exercise').value = '';
+        let reps = document.getElementById('reps').value = '';
+        let sets = document.getElementById('sets').value = '';
+        let weight = document.getElementById('weight').value = '';
     }
 
     static drag() {
