@@ -26,6 +26,18 @@ class Block {
         });
     }
 
+    static resetBlockForm() {
+        let exercise = document.getElementById('exercise')
+        let reps = document.getElementById('reps')
+        let sets = document.getElementById('sets')
+        let weight = document.getElementById('weight')
+      
+        exercise.value = '';
+        reps.value = '';
+        sets.value = '';
+        weight.value = '';
+    }
+
     renderBlock() {
         let container = document.getElementsByClassName('main')[0];
 
@@ -35,7 +47,7 @@ class Block {
         block.style.setProperty('--grid-cols', this.sets);
 
         for (let c=0; c<(this.reps * this.sets); c++) {
-          let cell = document.createElement('div');
+          let cell = document.createElement('span');
           cell.innerText = this.weight;
           container.appendChild(block);
           block.appendChild(cell).className = 'block-item';
@@ -45,6 +57,7 @@ class Block {
         label.innerText = this.exercise;
         block.appendChild(label).className = 'block-label';
         Block.drag();
+        Block.resetBlockForm();
     }
 
     static drag() {

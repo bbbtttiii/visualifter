@@ -3,6 +3,7 @@ class Api {
         this.baseUrl = `http://localhost:3000`;
     }
 
+    //create
     createBlock(formValues) {
         const newBlock = {block: formValues};
         return fetch(`${this.baseUrl}/blocks`, {
@@ -16,6 +17,7 @@ class Api {
         .then(response => response.json())
     }
 
+    //create
     createWorkout(formValue) {
         const newWorkout = {block: formValue};
         return fetch(`${this.baseUrl}/workouts`, {
@@ -27,6 +29,11 @@ class Api {
             body: JSON.stringify(newWorkout)
         })
         .then(response => response.json())
+    }
+
+    //read
+    loadWorkout() {
+
     }
 
 
