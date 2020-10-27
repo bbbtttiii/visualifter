@@ -27,14 +27,13 @@ class Block {
     }
 
     renderBlock() {
-
         let container = document.getElementsByClassName('main')[0];
-        // debugger
+
         let block = document.createElement('div');
         block.className = 'block';
         block.style.setProperty('--grid-rows', this.reps);
         block.style.setProperty('--grid-cols', this.sets);
-        // debugger
+
         for (let c=0; c<(this.reps * this.sets); c++) {
           let cell = document.createElement('div');
           cell.innerText = this.weight;

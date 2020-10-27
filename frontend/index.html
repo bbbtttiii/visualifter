@@ -13,20 +13,21 @@
 
         <div class="sidebar">
             <h3 class="sidebar-item">Menu</h3>
-            <form id="form">
+            <form id="block-form">
                 <label>Exercise</label><br>
-                <input type="text" id="exercise" size="15"><br>
+                <input type="text" id="exercise" size="15" value="Incline Bench Press"><br>
                 <label>Repetitions</label><br>
-                <input type="text" id="reps" size="3"><br>
+                <input type="text" id="reps" size="3" value="8"><br>
                 <label>Sets</label><br>
-                <input type="text" id="sets" size="3"><br>
+                <input type="text" id="sets" size="3" value="4"><br>
                 <label>Weight</label><br>
-                <input type="text" id="weight" size="3"><br><br>
-                <input type="submit" value="Add"> 
-                <!-- 'add' should clear the form so user can add another -->
-                <br><br>
+                <input type="text" id="weight" size="3" value="135"><br><br>
+                <input type="submit" value="Done"> 
+            </form>
+            <br><br>
+            <form id="workout-form">
                 <label>Save this workout</label>
-                <input type="text"><br><br>
+                <input type="text" value="ex: Upper Body"><br><br>
                 <input type="submit" value="Save"> 
                 <input type="submit" value="Reset"> 
                 <br><br>
@@ -37,9 +38,8 @@
                     <option>Lower body</option>
                 </select>
                 <input type="submit" value="Open"> 
-                <br><br>
-
             </form>
+            <br><br>
             <a href="#" class="sidebar-item">Link 1</a><br>
             <a href="#" class="sidebar-item">Link 2</a><br>
             <a href="#" class="sidebar-item">Link 3</a>

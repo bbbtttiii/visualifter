@@ -28,5 +28,4 @@
 // makeBlock(3, 5, 75, "incline bench press");
 // makeBlock(1, 3, 305, "squat")
 
-
-document.getElementById('form').addEventListener("submit", Block.createBlock)
+document.getElementById('block-form').addEventListener("submit", Block.createBlock);
