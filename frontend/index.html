@@ -15,21 +15,23 @@
             <h3 class="sidebar-item">Menu</h3>
             <form id="block-form">
                 <label>Exercise</label><br>
-                <input type="text" id="exercise" size="15" value="Incline Bench Press"><br><br>
+                <input type="text" id="exercise" size="15"><br><br>
                 <label>Repetitions</label><br>
-                <input type="text" id="reps" size="3" value="8"><br><br>
+                <input type="text" id="reps" size="3"><br><br>
                 <label>Sets</label><br>
-                <input type="text" id="sets" size="3" value="4"><br><br>
+                <input type="text" id="sets" size="3"><br><br>
                 <label>Weight</label><br>
-                <input type="text" id="weight" size="3" value="135"><br><br>
+                <input type="text" id="weight" size="3"><br><br>
                 <input type="submit" value="Done"> 
             </form>
             <br><br>
-            <form id="workout-form">
+            <form id="save-workout-form">
                 <label>Save this workout</label>
-                <input type="text" id="workout-input" value="Upper Body"><br><br>
+                <input type="text" id="workout"><br><br>
                 <input type="submit" value="Save"> 
-                <br><br>
+            </form>
+            <br><br>
+            <form id="load-workout-form">
                 <label>Load a workout</label>
                 <select id="workout-list">
                     <option>-select-</option>
@@ -51,8 +53,9 @@
             <!-- blocks go here  -->
         </div>
         
-        <script src="src/services/api.js"></script>
+        <script src="src/services/adapter.js"></script>
         <script src="src/components/Block.js"></script>
+        <script src="src/components/Workout.js"></script>
         <script src="src/index.js"></script>
     </body>
 </html>

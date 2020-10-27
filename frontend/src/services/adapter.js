@@ -17,6 +17,22 @@ class Adapter {
         .then(response => response.json())
     }
 
+    updateBlock(workoutId, blockId) {
+        // debugger
+        const updatedBlock = {block: 
+            {workout_id: workoutId}
+        };
+        return fetch(`${this.baseUrl}/blocks/${blockId}`, {
+            method: "PATCH", 
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(updatedBlock)
+        })
+        .then(response => response.json())
+    }
+
     //create
     createWorkout(formValue) {
         const newWorkout = {workout: formValue};
@@ -29,14 +45,10 @@ class Adapter {
             body: JSON.stringify(newWorkout)
         })
         .then(response => response.json())
-        
     }
 
     //read
     loadWorkout() {
         return fetch(this.baseUrl).then(res => res.json());
     }
-
-
-
 }

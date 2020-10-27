@@ -6,8 +6,13 @@ class WorkoutsController < ApplicationController
     end
 
     def create
-        workout = Workout.create(workout_params)
-        render json: workout
+        workout = Workout.new(workout_params)
+        if workout.save
+            # binding.pry
+            render json: workout
+        else
+            #error
+        end
     end
 
     def show

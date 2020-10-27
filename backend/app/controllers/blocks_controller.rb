@@ -17,8 +17,8 @@ class BlocksController < ApplicationController
 
     def update
         block = Block.find(params[:id]) 
-        block.update
-        if block.save
+        if block.update(block_params)
+            binding.pry
             render json: block
         else
             #render error

@@ -11,16 +11,29 @@ class Workout {
     static createWorkout(event) {
         event.preventDefault();
         let formValue = {
-            workout: document.getElementById('workout-input').value,
+            name: document.getElementById('workout').value,
         };
         new Adapter().createWorkout(formValue).then(workout => {
+            let blk = Block.allBlocks
+            // debugger
+            for (let block of blk) {
+                new Adapter().updateBlock(workout.id, block.id)
+            }
             new Workout(workout);
+            Workout.loadWorkout();
         });
+
     }
 
-    // listWorkouts() {
-    //     document.getElementById('workout-list');
-    // }
+    //fetch request #2 updates each block id
+
+    static loadWorkout() {
+
+    }
+
+    listWorkouts() {
+        document.getElementById('workout-list');
+    }
 
     // static loadWorkout() {
 
