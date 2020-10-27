@@ -5,7 +5,7 @@ class Api {
 
     createBlock(formValues) {
         const newBlock = {block: formValues};
-        fetch(`${this.baseUrl}/blocks`, {
+        return fetch(`${this.baseUrl}/blocks`, {
             method: "POST", 
             headers: {
                 "Content-Type": "application/json",

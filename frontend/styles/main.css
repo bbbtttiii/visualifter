@@ -31,9 +31,13 @@ body {
 }
 
 .main {
-  float:left;
+  /* float:left; */
   margin-left: 15%;
   padding: 10px;
+}
+
+.block-outer {
+  vertical-align: bottom;
 }
   
 .block {
