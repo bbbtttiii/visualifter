@@ -49,10 +49,10 @@ class Block {
     }
 
     static resetBlockForm() {
-        let exercise = document.getElementById('exercise').value = '';
-        let reps = document.getElementById('reps').value = '';
-        let sets = document.getElementById('sets').value = '';
-        let weight = document.getElementById('weight').value = '';
+        document.getElementById('exercise').value = '';
+        document.getElementById('reps').value = '';
+        document.getElementById('sets').value = '';
+        document.getElementById('weight').value = '';
     }
 
     static drag() {
