@@ -7,6 +7,7 @@ class BlocksController < ApplicationController
 
     def create
         block = Block.new(block_params)
+        # binding.pry
         if block.save
             render json: block
         else
@@ -17,10 +18,11 @@ class BlocksController < ApplicationController
     def update
         # binding.pry
         block = Block.find(params[:id]) 
-        if block.save
+        if block.update(block_params)
+            # binding.pry
             render json: block
         else
-            #error
+            #render error
         end
     end
 
@@ -35,4 +37,4 @@ class BlocksController < ApplicationController
         params.require(:block).permit(:exercise, :weight, :reps, :sets, :workout_id)
     end
 
-end         
+end
