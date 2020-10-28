@@ -21,7 +21,6 @@ class Block {
             weight: document.getElementById('weight').value
         };
         new Adapter().createBlock(formValues).then(block => {
-            // debugger
             let newBlock = new Block(block);
             newBlock.renderBlock();
         });

@@ -23,23 +23,14 @@ class Workout {
             //don't push in workout until it has all blocks associated with it
             new Workout(workout);
             Workout.listWorkouts();
-            // Workout.loadWorkout();
         });
-
     }
-
-    //fetch request #2 updates each block id
-
-    // static loadWorkout() {
-
-    // }
 
     static listWorkouts() {
         let list = document.getElementById('workout-list');
         let wrkts = Workout.allWorkouts;
         for (let workout of wrkts) {
             let item = document.createElement('option');
-            // debugger
             item.innerText = workout.name;
             item.setAttribute('value', workout.id)
             list.append(item);
@@ -51,10 +42,5 @@ class Workout {
         let result = Workout.allWorkouts.find(workout => (workout.id === parseInt(selection)));
         debugger
     }
-
-    // static loadWorkout() {
-
-    //     .then(response => {showSavedWorkouts(response)})
-    // }
 
 }
