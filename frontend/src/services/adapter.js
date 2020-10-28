@@ -19,7 +19,6 @@ class Adapter {
 
     //to update block when saving workout (not for editing block attributes)
     updateBlock(workoutId, blockId) {
-        // debugger
         const updatedBlock = {block: 
             {workout_id: workoutId}
         };

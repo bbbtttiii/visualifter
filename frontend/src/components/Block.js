@@ -34,8 +34,8 @@ class Block {
         block.className = 'block'; //assigning block to its class
         outerBlock.className = 'outer-block'; //assign outer block to its class
         
-        block.style.setProperty('--grid-rows', this.reps); //setting the block rows to the number of reps
-        block.style.setProperty('--grid-cols', this.sets); //setting the block cols to the number of sets
+        block.style.setProperty('--grid-rows', this.sets); //setting the block rows to the number of reps
+        block.style.setProperty('--grid-cols', this.reps); //setting the block cols to the number of sets
         
         for (let c=0; c<(this.sets * this.reps); c++) { //loop thru
             let cell = document.createElement('span'); //create span called cell

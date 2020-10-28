@@ -42,7 +42,7 @@ class Workout {
     listWorkout() {
         let list = document.getElementById('workout-list');
         let item = document.createElement('option');
-        debugger
+        // debugger
         item.innerText = this.name;
         item.setAttribute('value', this.id)
         list.append(item);
