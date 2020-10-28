@@ -7,8 +7,11 @@ class WorkoutsController < ApplicationController
 
     def create
         workout = Workout.new(workout_params)
+        # blocks.each do |b| 
+        #      workout.blocks << b
+        # end
         if workout.save
-            # binding.pry
+            binding.pry
             render json: workout
         else
             #error
