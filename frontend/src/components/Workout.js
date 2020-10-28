@@ -17,13 +17,14 @@ class Workout {
         new Adapter().createWorkout(formValue).then(workout => {
             let blk = Block.allBlocks
             for (let block of blk) {
-                debugger
                 new Adapter().updateBlock(workout.id, block.id)
             }
             //don't push in workout until it has all blocks associated with it
             new Workout(workout);
             Workout.listWorkouts();
             Workout.resetWorkoutForm();
+            let name = document.getElementsByTagName('h3')[0];
+            name.innerText = workout.name;
         });
     }
 
