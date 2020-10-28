@@ -21,17 +21,17 @@ class Workout {
             }
             let newWorkout = new Workout(workout);
             newWorkout.listWorkout();
-            Workout.resetWorkoutForm();
+
+            let savedForm = document.getElementById('save-workout-form')
+            let savedMsg = document.createElement('span');
+            savedMsg.innerText = "Saved!";
+            savedForm.appendChild(savedMsg).className = 'message';
+            let savedInput = document.getElementById('workout-input')
+            savedInput.value = '';
+
             let name = document.getElementsByTagName('h3')[0];
             name.innerText = workout.name;
         });
-    }
-
-    
-
-    static resetWorkoutForm() {
-        document.getElementById('workout-input').value = '';
-        // alert: saved!
     }
 
     static listWorkouts() {
@@ -44,7 +44,6 @@ class Workout {
     listWorkout() {
         let list = document.getElementById('workout-list');
         let item = document.createElement('option');
-        // debugger
         item.innerText = this.name;
         item.setAttribute('value', this.id)
         list.append(item);

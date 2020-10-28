@@ -53,9 +53,9 @@ class Block {
         Block.resetBlockForm();
 
         //block highlighting
-            // add 'edit' class
         block.addEventListener("click", () => { //inherits 'this' from bigger scope
-            // debugger
+        // debugger
+        // add 'edit' class
             document.getElementsByClassName('block');
             document.getElementById('exercise').value = this.exercise;
             document.getElementById('reps').value = this.reps;
