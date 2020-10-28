@@ -5,17 +5,22 @@
 
 body {
   margin: 0;
-  background-color: lightslategray;
+  background-color: #94aac0;
 }
 
 .header {
   background-color: lightblue;
-  margin-left: 20%;
   height:100%;
   width: 100%;
   float: left;
-  padding-left: 10px;
   border-bottom: 1px solid #333;
+  margin-left: 20%;
+}
+
+.header h1 {
+  letter-spacing: 5px;
+  font-style: italic;
+  padding-left: 10px;
 }
 
 .sidebar {
@@ -27,17 +32,21 @@ body {
   overflow-x: hidden;
   width: 20%;
   background-color: #ddd;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 10px;
+}
+
+.sidebar h3 {
+  padding-left: 5px;
 }
 
 .sidebar form {
-  padding: 5px;
+  padding: 10px;
   border: 1px solid #777;
   border-radius: 10px;
 }
 
-/* .sidebar input[type=button],
+/* .sidebar
+input[type=button],
 input[type=submit],
 input[type=reset] {
   text-align: right;
