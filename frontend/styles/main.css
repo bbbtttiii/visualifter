@@ -63,6 +63,7 @@ input[type=reset] {
 }
   
 .block {
+
   border: 1px solid #aaa;
   cursor: grab;
   font-size: 12px;
@@ -83,7 +84,9 @@ input[type=reset] {
 }
 
 .block-label {
+  max-width: 25px;
   text-align: center;
   font-size: 12px;
+  line-height: 12px;
   display:block;
 }

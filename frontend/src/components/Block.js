@@ -27,23 +27,28 @@ class Block {
     }
 
     renderBlock() {
-        let container = document.getElementsByClassName('main')[0];
+        let container = document.getElementsByClassName('main')[0]; //selecting canvas
+        let outerBlock = document.createElement('div'); //creating outer block div
+        let block = document.createElement('div');  //creating inner block div
 
-        let block = document.createElement('div');
-        block.className = 'block';
-        block.style.setProperty('--grid-rows', this.reps);
-        block.style.setProperty('--grid-cols', this.sets);
-
-        for (let c=0; c<(this.reps * this.sets); c++) {
-          let cell = document.createElement('span');
-          cell.innerText = this.weight;
-          container.appendChild(block);
-          block.appendChild(cell).className = 'block-item';
+        block.className = 'block'; //assigning block to its class
+        outerBlock.className = 'outer-block'; //assign outer block to its class
+        
+        block.style.setProperty('--grid-rows', this.reps); //setting the block rows to the number of reps
+        block.style.setProperty('--grid-cols', this.sets); //setting the block cols to the number of sets
+        
+        for (let c=0; c<(this.sets * this.reps); c++) { //loop thru
+            let cell = document.createElement('span'); //create span called cell
+            cell.innerText = this.weight; //put weight inside each cell
+            block.appendChild(cell).className = 'block-item'; //append cells to the block, assign block-item class
+            container.appendChild(outerBlock); //append each outerblock to the container
+            outerBlock.appendChild(block)   //append block to the outer block
         }
         
-        let label = document.createElement('span');
-        label.innerText = this.exercise;
-        block.appendChild(label).className = 'block-label';
+        let label = document.createElement('span'); //create span called label
+        label.innerText = this.exercise; //set label to exercise name
+        block.appendChild(label).className = 'block-label'; //append block with label, give class block-label
+        
         Block.drag();
         Block.resetBlockForm();
     }
