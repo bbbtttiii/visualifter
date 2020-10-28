@@ -17,6 +17,7 @@ class Adapter {
         .then(response => response.json())
     }
 
+    //to update block when saving workout (not for editing block attributes)
     updateBlock(workoutId, blockId) {
         // debugger
         const updatedBlock = {block: 

@@ -11,7 +11,7 @@ class WorkoutsController < ApplicationController
         #      workout.blocks << b
         # end
         if workout.save
-            binding.pry
+            # binding.pry
             render json: workout
         else
             #error

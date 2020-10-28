@@ -19,9 +19,8 @@ class Workout {
             for (let block of blk) {
                 new Adapter().updateBlock(workout.id, block.id)
             }
-            //don't push in workout until it has all blocks associated with it
-            new Workout(workout);
-            Workout.listWorkouts();
+            let newWorkout = new Workout(workout);
+            newWorkout.listWorkout();
             Workout.resetWorkoutForm();
             let name = document.getElementsByTagName('h3')[0];
             name.innerText = workout.name;
@@ -30,18 +29,23 @@ class Workout {
 
     static resetWorkoutForm() {
         document.getElementById('workout-input').value = '';
-        // saved!
+        // alert: saved!
     }
 
     static listWorkouts() {
-        let list = document.getElementById('workout-list');
         let wrkts = Workout.allWorkouts;
         for (let workout of wrkts) {
-            let item = document.createElement('option');
-            item.innerText = workout.name;
-            item.setAttribute('value', workout.id)
-            list.append(item);
+            workout.listWorkout()
         }
+    }
+
+    listWorkout() {
+        let list = document.getElementById('workout-list');
+        let item = document.createElement('option');
+        debugger
+        item.innerText = this.name;
+        item.setAttribute('value', this.id)
+        list.append(item);
     }
 
     static openWorkout() {
