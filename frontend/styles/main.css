@@ -28,7 +28,20 @@ body {
   width: 20%;
   background-color: #ddd;
   padding-left: 10px;
+  padding-right: 10px;
 }
+
+.sidebar form {
+  padding: 5px;
+  border: 1px solid #777;
+  border-radius: 10px;
+}
+
+/* .sidebar input[type=button],
+input[type=submit],
+input[type=reset] {
+  text-align: right;
+} */
 
 .main {
   float:left;
