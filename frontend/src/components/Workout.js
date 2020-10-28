@@ -27,6 +27,8 @@ class Workout {
         });
     }
 
+    
+
     static resetWorkoutForm() {
         document.getElementById('workout-input').value = '';
         // alert: saved!

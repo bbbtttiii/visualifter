@@ -51,9 +51,20 @@ class Block {
         
         Block.drag();
         Block.resetBlockForm();
-    }
 
-    static resetBlockForm() {
+        //block highlighting
+            // add 'edit' class
+        block.addEventListener("click", () => { //inherits 'this' from bigger scope
+            // debugger
+            document.getElementsByClassName('block');
+            document.getElementById('exercise').value = this.exercise;
+            document.getElementById('reps').value = this.reps;
+            document.getElementById('sets').value = this.sets;
+            document.getElementById('weight').value = this.weight;
+        }) 
+    }   
+
+    static resetBlockForm() { //remove 'edit' class
         document.getElementById('exercise').value = '';
         document.getElementById('reps').value = '';
         document.getElementById('sets').value = '';

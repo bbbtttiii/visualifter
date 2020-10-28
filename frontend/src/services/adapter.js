@@ -49,6 +49,12 @@ class Adapter {
 
     //read
     loadWorkout() {
-        return fetch(this.baseUrl).then(res => res.json());
+        return fetch(`${this.baseUrl}/workouts`).then(res => res.json())
+        .then(function(res) {
+            for (let w of res) {
+                new Workout(w)
+            }
+        Workout.listWorkouts();
+        });
     }
 }
