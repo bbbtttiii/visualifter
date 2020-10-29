@@ -59,17 +59,13 @@ class Adapter {
     }
 
     //delete
-    deleteBlock(e) {
-        e.preventDefault();
+    deleteBlock(blockId) {
         let obj = {
             method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            }
         }
         fetch(`${this.baseUrl}/blocks/${blockId}`, obj)
         .then(response => response.json())
-        e.target.remove();
+        .then()
+        e.target.remove();  //optimistic rendering
     }
 }

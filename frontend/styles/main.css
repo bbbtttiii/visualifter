@@ -60,15 +60,11 @@ input[type=reset] {
   text-align: right;
 } */
 
-.main {
+#main {
   flex: 80%;
   padding: 10px;
 }
 
-.block-outer {
-  vertical-align: bottom;
-}
-  
 .block {
   border: 1px solid #aaa;
   cursor: grab;
@@ -109,6 +105,10 @@ input[type=reset] {
   font-size: 12px;
   line-height: 12px;
   display:block;
+}
+
+.delete-button {
+  color: red;
 }
 
 .message {
