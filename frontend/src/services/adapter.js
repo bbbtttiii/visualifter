@@ -57,4 +57,18 @@ class Adapter {
         Workout.listWorkouts();
         });
     }
+
+    //delete
+    deleteBlock(e) {
+        e.preventDefault();
+        let obj = {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        }
+        fetch(`${this.baseUrl}/blocks/${blockId}`, obj)
+        e.target.remove();
+    }
 }

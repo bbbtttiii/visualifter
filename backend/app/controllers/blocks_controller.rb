@@ -7,7 +7,6 @@ class BlocksController < ApplicationController
 
     def create
         block = Block.new(block_params)
-        # binding.pry
         if block.save
             render json: block
         else
@@ -16,10 +15,8 @@ class BlocksController < ApplicationController
     end
 
     def update
-        # binding.pry
         block = Block.find(params[:id]) 
         if block.update(block_params)
-            # binding.pry
             render json: block
         else
             #render error

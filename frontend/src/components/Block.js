@@ -25,6 +25,11 @@ class Block {
             newBlock.renderBlock();
         });
     }
+    
+    static deleteBlock(event) {
+        event.preventDefault();
+        new Adapter().deleteBlock();
+    }
 
     renderBlock() {
         let container = document.getElementsByClassName('main')[0]; //selecting canvas
@@ -53,8 +58,7 @@ class Block {
         Block.resetBlockForm();
 
         //block highlighting
-        block.addEventListener("click", () => { //inherits 'this' from bigger scope
-        // debugger
+        block.addEventListener("click", () => {
         // add 'edit' class
             document.getElementsByClassName('block');
             document.getElementById('exercise').value = this.exercise;
@@ -72,7 +76,7 @@ class Block {
     }
 
     static drag() {
-        var draggableElements = document.getElementsByClassName('block');
+        let draggableElements = document.getElementsByClassName('block');
 
         for(let i=0; i<draggableElements.length; i++){
             dragElement(draggableElements[i]);
@@ -80,10 +84,12 @@ class Block {
 
         function dragElement(elmnt) {
             let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            // move the div:
             elmnt.onmousedown = dragMouseDown;
 
             function dragMouseDown(e) {
                 e = e || window.event;
+                // get the mouse cursor position at startup:
                 pos3 = parseInt(e.clientX);
                 pos4 = parseInt(e.clientY);
                 document.onmouseup = closeDragElement;
@@ -93,20 +99,21 @@ class Block {
 
             function elementDrag(e) {
                 e = e || window.event;
+                // calculate the new cursor position:
                 pos1 = pos3 - parseInt(e.clientX);
                 pos2 = pos4 - parseInt(e.clientY);
                 pos3 = parseInt(e.clientX);
                 pos4 = parseInt(e.clientY);
+                // set the element's new position:
                 elmnt.style.top = (elmnt.offsetTop - pos2) + 'px';
-                // console.log(elmnt.offsetTop)
                 elmnt.style.left = (elmnt.offsetLeft - pos1) + 'px';
             }
 
             function closeDragElement() {
+                // stop moving when mouse button is released:
                 document.onmouseup = null;
                 document.onmousemove = null;
             }
         }
     }
-
 }
