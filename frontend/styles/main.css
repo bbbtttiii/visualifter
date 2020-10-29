@@ -111,6 +111,10 @@ input[type=reset] {
   color: red;
 }
 
+.delete-button-hidden {
+  display: none;
+}
+
 .message {
   color: blue;
 }

@@ -9,7 +9,6 @@ class Block {
         this.sets = block.sets;
         this.id = block.id;
         this.workoutId = block.workout_id;
-        this.editing = false;
         Block.allBlocks.push(this);
     }
 
@@ -21,19 +20,12 @@ class Block {
             sets: document.getElementById('sets').value,
             weight: document.getElementById('weight').value
         };
-        let input = document.getElementById('exercise');
-        if (input.classList.contains('editing')) {
-            new Adapter().updateBlock(formValues);
-            // let editedBlock = ???;
-            // editedBlock.editBlock();
-        } else {
-            new Adapter().createBlock(formValues).then(block => {
-                let newBlock = new Block(block);
-                newBlock.renderBlock();
-            });
-        }
+        new Adapter().createBlock(formValues).then(block => {
+            let newBlock = new Block(block);
+            newBlock.renderBlock();
+        });
     }
-
+    
     deleteBlock(event) {
         event.preventDefault();
         new Adapter().deleteBlock(this.id);
@@ -65,6 +57,7 @@ class Block {
         //block highlighting
         block.addEventListener("click", (event) => {
             event.stopPropagation();
+            //when selected
             if (editing === false) {
                 editing = true;
                 let ex = document.getElementById('exercise');
@@ -75,15 +68,23 @@ class Block {
                     set.value = this.sets;
                 let wght = document.getElementById('weight');
                     wght.value = this.weight;
-            } else {
-                Block.resetBlockForm();
-            }
 
-            if (!document.querySelector('.delete-button')) {
-                let form = document.getElementById('block-form')
-                let deleteBtn = document.createElement('button');
-                deleteBtn.innerText = "Delete Block"
-                form.appendChild(deleteBtn).className = 'delete-button';
+                //add delete button
+                if (!document.querySelector('.delete-button')) {
+                    let form = document.getElementById('block-form');
+                    let deleteBtn = document.createElement('button');
+                    deleteBtn.innerText = "Delete Block";
+                    form.appendChild(deleteBtn).className = 'delete-button';
+                    deleteBtn.style.display = 'inline';
+                } else {
+                    let btn = document.querySelector('.delete-button');
+                    btn.style.display = 'inline';
+                }
+            //when un-selected
+            } else {
+                let btn = document.querySelector('.delete-button');
+                btn.classList.remove('.delete-button')
+                Block.resetBlockForm();
             }
         }) 
     }
@@ -96,16 +97,17 @@ class Block {
             editing = false;
             let ex = document.getElementById('exercise');
                 ex.value = '';
-                ex.classList.remove("editing");
             let rep = document.getElementById('reps');
                 rep.value = '';
-                rep.classList.remove("editing");
             let set = document.getElementById('sets');
                 set.value = '';
-                set.classList.remove("editing");
             let wght = document.getElementById('weight');
                 wght.value = '';
-                wght.classList.remove("editing");
+
+            if (document.querySelector('.delete-button')) {
+                let btn = document.querySelector('.delete-button')
+                btn.style.display = "none";
+            }
     }
 
     static drag() {

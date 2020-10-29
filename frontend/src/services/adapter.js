@@ -65,7 +65,7 @@ class Adapter {
         }
         fetch(`${this.baseUrl}/blocks/${blockId}`, obj)
         .then(response => response.json())
-        .then()
+        // .then(function(json)) {}
         e.target.remove();  //optimistic rendering
     }
 }

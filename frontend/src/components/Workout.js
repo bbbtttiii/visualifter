@@ -52,8 +52,7 @@ class Workout {
     static openWorkout() {
         let selection = document.getElementById('workout-list').value;
         let result = Workout.allWorkouts.find(workout => (workout.id === parseInt(selection)));
-        // debugger
         new Adapter().loadWorkout(result);
+        debugger
     }
-
 }
