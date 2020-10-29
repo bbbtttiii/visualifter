@@ -28,6 +28,7 @@ class Block {
     
     deleteBlock(event) {
         event.preventDefault();
+
         new Adapter().deleteBlock(this.id);
     }
 
@@ -51,15 +52,17 @@ class Block {
         label.innerText = this.exercise; //set label to exercise name
         block.appendChild(label).className = 'block-label'; //append block with label, give class block-label
         
+        //enable dragging
         Block.drag();
+        //clear the form
         Block.resetBlockForm();
 
         //block highlighting
         block.addEventListener("click", (event) => {
             event.stopPropagation();
             //when selected
-            if (editing === false) {
-                editing = true;
+            if (selected === false) {
+                selected = true;
                 let ex = document.getElementById('exercise');
                     ex.value = this.exercise;
                 let rep = document.getElementById('reps');
@@ -68,7 +71,7 @@ class Block {
                     set.value = this.sets;
                 let wght = document.getElementById('weight');
                     wght.value = this.weight;
-
+                block.style.border = "3px lightyellow solid";
                 //add delete button
                 if (!document.querySelector('.delete-button')) {
                     let form = document.getElementById('block-form');
@@ -84,17 +87,17 @@ class Block {
             } else {
                 let btn = document.querySelector('.delete-button');
                 btn.classList.remove('.delete-button')
+                block.style.border = "1px solid black";
                 Block.resetBlockForm();
             }
         }) 
     }
 
-    editBlock() {
-        
-    }
+    // editBlock() {
+    // }
 
     static resetBlockForm() {
-            editing = false;
+            selected = false;
             let ex = document.getElementById('exercise');
                 ex.value = '';
             let rep = document.getElementById('reps');

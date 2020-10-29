@@ -53,20 +53,13 @@ body {
   margin-bottom: 8px;
 }
 
-/* .sidebar
-input[type=button],
-input[type=submit],
-input[type=reset] {
-  text-align: right;
-} */
-
 #main {
   flex: 80%;
   padding: 10px;
 }
 
 .block {
-  border: 1px solid #aaa;
+  border: 1px solid black;
   cursor: grab;
   font-size: 12px;
   display: grid;
@@ -78,18 +71,6 @@ input[type=reset] {
   grid-template-columns: repeat(var(--grid-cols), 1fr);
 }
 
-.highlightedblock {
-  border: 10px solid lightyellow;
-  cursor: grab;
-  font-size: 12px;
-  display: grid;
-  padding: 5px;
-  position: absolute;
-  background-color: lightblue;
-  grid-gap: 0.3em;
-  grid-template-rows: repeat(var(--grid-rows), 1fr);
-  grid-template-columns: repeat(var(--grid-cols), 1fr);
-}
 
 .block-item {
   min-width: 10px;
@@ -109,10 +90,6 @@ input[type=reset] {
 
 .delete-button {
   color: red;
-}
-
-.delete-button-hidden {
-  display: none;
 }
 
 .message {
