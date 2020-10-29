@@ -12,11 +12,9 @@ A weightlifting visualizer: Build and organize workout "blocks".
 
 ## Features
 
-Features features features
-
-## Built With
-
-- [Built With](http://builtwith.builtwith)
+- Create lifts with various rep ranges, sets, and weight loads.
+- Arrange "blocks" to visualize work volume and build programs dynamically.
+- Modify existing exercises + Save and load workouts
 
 ## Contributing
 
