@@ -33,11 +33,9 @@ class Block {
 
     renderBlock() {
         let container = document.getElementsByClassName('main')[0]; //selecting canvas
-        let outerBlock = document.createElement('div'); //creating outer block div
         let block = document.createElement('div');  //creating inner block div
 
         block.className = 'block'; //assigning block to its class
-        outerBlock.className = 'outer-block'; //assign outer block to its class
         
         block.style.setProperty('--grid-rows', this.sets); //setting the block rows to the number of reps
         block.style.setProperty('--grid-cols', this.reps); //setting the block cols to the number of sets
@@ -46,8 +44,7 @@ class Block {
             let cell = document.createElement('span'); //create span called cell
             cell.innerText = this.weight; //put weight inside each cell
             block.appendChild(cell).className = 'block-item'; //append cells to the block, assign block-item class
-            container.appendChild(outerBlock); //append each outerblock to the container
-            outerBlock.appendChild(block)   //append block to the outer block
+            container.appendChild(block); //append each outerblock to the container
         }
         
         let label = document.createElement('span'); //create span called label
@@ -59,20 +56,39 @@ class Block {
 
         //block highlighting
         block.addEventListener("click", () => {
-        // add 'edit' class
-            document.getElementsByClassName('block');
-            document.getElementById('exercise').value = this.exercise;
-            document.getElementById('reps').value = this.reps;
-            document.getElementById('sets').value = this.sets;
-            document.getElementById('weight').value = this.weight;
+            document.querySelector('block');
+            let ex = document.getElementById('exercise');
+                ex.value = this.exercise;
+                ex.classList.add("editing");
+            let rep = document.getElementById('reps');
+                rep.value = this.reps;
+                rep.classList.add("editing");
+            let set = document.getElementById('sets');
+                set.value = this.sets;
+                set.classList.add("editing");
+            let wght = document.getElementById('weight');
+                wght.value = this.weight;
+                wght.classList.add("editing");
         }) 
-    }   
+    }
 
-    static resetBlockForm() { //remove 'edit' class
-        document.getElementById('exercise').value = '';
-        document.getElementById('reps').value = '';
-        document.getElementById('sets').value = '';
-        document.getElementById('weight').value = '';
+    editBlock() {
+        
+    }
+
+    static resetBlockForm() {
+            let ex = document.getElementById('exercise');
+                ex.value = '';
+                ex.classList.remove("editing");
+            let rep = document.getElementById('reps');
+                rep.value = '';
+                rep.classList.remove("editing");
+            let set = document.getElementById('sets');
+                set.value = '';
+                set.classList.remove("editing");
+            let wght = document.getElementById('weight');
+                wght.value = '';
+                wght.classList.remove("editing");
     }
 
     static drag() {

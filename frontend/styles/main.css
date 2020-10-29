@@ -82,8 +82,8 @@ input[type=reset] {
   grid-template-columns: repeat(var(--grid-cols), 1fr);
 }
 
-/* .highlightedblock {
-  border: 5px solid lightyellow;
+.highlightedblock {
+  border: 10px solid lightyellow;
   cursor: grab;
   font-size: 12px;
   display: grid;
@@ -93,7 +93,7 @@ input[type=reset] {
   grid-gap: 0.3em;
   grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-template-columns: repeat(var(--grid-cols), 1fr);
-} */
+}
 
 .block-item {
   min-width: 10px;

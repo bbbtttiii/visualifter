@@ -69,6 +69,7 @@ class Adapter {
             }
         }
         fetch(`${this.baseUrl}/blocks/${blockId}`, obj)
+        .then(response => response.json())
         e.target.remove();
     }
 }
