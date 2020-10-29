@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: #94aac0;
+  background-color: slategray;
 }
 
 .header {
@@ -26,7 +26,7 @@ body {
 
 .row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .sidebar {
@@ -115,8 +115,9 @@ input[type=reset] {
   color: blue;
 }
 
-@media (max-width: 200px) {
+@media (max-width: 800px) {
   .sidebar, .row {
     flex-direction: column;
+    flex-wrap: wrap;
   }
 }
