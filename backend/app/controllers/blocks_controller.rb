@@ -26,6 +26,7 @@ class BlocksController < ApplicationController
     def destroy
         block = Block.find(params[:id])
         block.destroy
+        render json: {message: "Success"}
     end
 
     private

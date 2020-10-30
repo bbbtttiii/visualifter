@@ -60,12 +60,14 @@ class Adapter {
 
     //delete
     deleteBlock(blockId) {
-        let obj = {
-            method: "DELETE",
-        }
-        fetch(`${this.baseUrl}/blocks/${blockId}`, obj)
+        return fetch(`${this.baseUrl}/blocks/${blockId}`, {
+            method: "DELETE"
+        })
         .then(response => response.json())
-        // .then(function(json)) {}
-        e.target.remove();  //optimistic rendering
+        .then(function(obj){
+            if (obj.message) {
+                Block.removeBlock(blockId);
+            }
+        })
     }
 }

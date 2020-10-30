@@ -28,8 +28,12 @@ class Block {
     
     deleteBlock(event) {
         event.preventDefault();
-
         new Adapter().deleteBlock(this.id);
+    }
+
+    static removeBlock(blockId) {
+        document.getElementById(blockId).remove();
+        Block.resetBlockForm();
     }
 
     renderBlock() {
@@ -37,6 +41,7 @@ class Block {
         let block = document.createElement('div');  //creating inner block div
 
         block.className = 'block'; //assigning block to its class
+        block.id = this.id
         
         block.style.setProperty('--grid-rows', this.sets); //setting the block rows to the number of reps
         block.style.setProperty('--grid-cols', this.reps); //setting the block cols to the number of sets
@@ -64,14 +69,14 @@ class Block {
             if (selected === false) {
                 selected = true;
                 let ex = document.getElementById('exercise');
-                    ex.value = this.exercise;
+                ex.value = this.exercise;
                 let rep = document.getElementById('reps');
-                    rep.value = this.reps;
+                rep.value = this.reps;
                 let set = document.getElementById('sets');
-                    set.value = this.sets;
+                set.value = this.sets;
                 let wght = document.getElementById('weight');
-                    wght.value = this.weight;
-                block.style.border = "3px lightyellow solid";
+                wght.value = this.weight;
+                block.style.border = '2px lightyellow solid';
                 //add delete button
                 if (!document.querySelector('.delete-button')) {
                     let form = document.getElementById('block-form');
@@ -79,22 +84,26 @@ class Block {
                     deleteBtn.innerText = "Delete Block";
                     form.appendChild(deleteBtn).className = 'delete-button';
                     deleteBtn.style.display = 'inline';
+
+                    document.getElementsByClassName('delete-button')[0]
+                    .addEventListener("click", this.deleteBlock.bind(this));
+
                 } else {
                     let btn = document.querySelector('.delete-button');
                     btn.style.display = 'inline';
+                    
+                    document.getElementsByClassName('delete-button')[0]
+                    .addEventListener("click", this.deleteBlock.bind(this));
                 }
             //when un-selected
             } else {
                 let btn = document.querySelector('.delete-button');
                 btn.classList.remove('.delete-button')
-                block.style.border = "1px solid black";
+                block.style.border = '1px solid black';
                 Block.resetBlockForm();
             }
         }) 
     }
-
-    // editBlock() {
-    // }
 
     static resetBlockForm() {
             selected = false;
