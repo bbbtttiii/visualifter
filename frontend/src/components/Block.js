@@ -29,11 +29,20 @@ class Block {
     deleteBlock(event) {
         event.preventDefault();
         new Adapter().deleteBlock(this.id);
+        Block.removeBlock(this.id);
     }
 
     static removeBlock(blockId) {
+        // debugger
+        Block.allBlocks.find(block => block.id === blockId).resetBlockForm();
         document.getElementById(blockId).remove();
-        Block.resetBlockForm();
+        let b = Block.allBlocks.map(block => block.id).indexOf(blockId);
+        if (b > -1) {
+            Block.allBlocks.splice(b, 1);
+        }
+        // debugger
+
+        // document.getElementById(`del-${blockId}`).resetBlockForm();
     }
 
     renderBlock() {
@@ -60,7 +69,7 @@ class Block {
         //enable dragging
         Block.drag();
         //clear the form
-        Block.resetBlockForm();
+        this.resetBlockForm();
 
         //block highlighting
         block.addEventListener("click", (event) => {
@@ -68,6 +77,7 @@ class Block {
             //when selected
             if (selected === false) {
                 selected = true;
+
                 let ex = document.getElementById('exercise');
                 ex.value = this.exercise;
                 let rep = document.getElementById('reps');
@@ -76,50 +86,61 @@ class Block {
                 set.value = this.sets;
                 let wght = document.getElementById('weight');
                 wght.value = this.weight;
+
                 block.style.border = '2px lightyellow solid';
-                //add delete button
-                if (!document.querySelector('.delete-button')) {
+
+                //add delete button if it doesn't exist yet
+                if (!document.getElementById(`del-${this.id}`)) {
+                    // debugger
                     let form = document.getElementById('block-form');
                     let deleteBtn = document.createElement('button');
                     deleteBtn.innerText = "Delete Block";
+                    deleteBtn.id = `del-${this.id}`;
                     form.appendChild(deleteBtn).className = 'delete-button';
                     deleteBtn.style.display = 'inline';
-
-                    document.getElementsByClassName('delete-button')[0]
-                    .addEventListener("click", this.deleteBlock.bind(this));
+                    //find delete button and point to deleteBlock
+                    deleteBtn.addEventListener("click", this.deleteBlock.bind(this));
 
                 } else {
-                    let btn = document.querySelector('.delete-button');
+                    // debugger
+                    //make delete button visible
+                    let btn = document.getElementById(`del-${this.id}`);
                     btn.style.display = 'inline';
-                    
-                    document.getElementsByClassName('delete-button')[0]
-                    .addEventListener("click", this.deleteBlock.bind(this));
+                    //find delete button and point to deleteBlock
+                    // btn.addEventListener("click", this.deleteBlock.bind(this));
                 }
+                
             //when un-selected
             } else {
-                let btn = document.querySelector('.delete-button');
-                btn.classList.remove('.delete-button')
+                selected = false;
                 block.style.border = '1px solid black';
-                Block.resetBlockForm();
+                let btn = document.getElementById(`del-${this.id}`);
+                // debugger
+                btn.style.display = "none";
+                this.resetBlockForm();
+                btn.removeEventListener("click", this.deleteBlock.bind(this));
             }
         }) 
     }
 
-    static resetBlockForm() {
-            selected = false;
-            let ex = document.getElementById('exercise');
-                ex.value = '';
-            let rep = document.getElementById('reps');
-                rep.value = '';
-            let set = document.getElementById('sets');
-                set.value = '';
-            let wght = document.getElementById('weight');
-                wght.value = '';
+    resetBlockForm() {
+        //clear form fields
+        let ex = document.getElementById('exercise');
+        ex.value = '';
+        let rep = document.getElementById('reps');
+        rep.value = '';
+        let set = document.getElementById('sets');
+        set.value = '';
+        let wght = document.getElementById('weight');
+        wght.value = '';
 
-            if (document.querySelector('.delete-button')) {
-                let btn = document.querySelector('.delete-button')
-                btn.style.display = "none";
-            }
+        //hide delete button
+        if (document.getElementById(`del-${this.id}`)) {
+            let btn = document.getElementById(`del-${this.id}`)
+            btn.style.display = "none";
+        }
+
+        selected = false;
     }
 
     static drag() {

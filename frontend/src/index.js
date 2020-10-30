@@ -14,5 +14,4 @@ class Index {
 }
 
 let selected = false;
-
 new Index();

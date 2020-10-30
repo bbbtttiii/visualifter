@@ -8,10 +8,7 @@
 
 
 upper = Workout.create(name: "Upper Body")
-
-
 lower = Workout.create(name: "Lower Body")
-
 
 upper.blocks.create(exercise: "bench", reps: 10, sets: 4, weight: 135)
 lower.blocks.create(exercise: "squat", reps: 10, sets: 4, weight: 185)
