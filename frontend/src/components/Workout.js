@@ -5,8 +5,9 @@ class Workout {
     constructor(workout) {
         this.name = workout.name;
         this.id = workout.id;
+        this.blocks = workout.blocks;
+        // this.blocks = Block.allBlocks.filter(block => {block.workoutId === workout.id});
         Workout.allWorkouts.push(this);
-        this.blocks = Block.allBlocks.filter(block => {block.workoutId === workout.id});
     }
 
     static createWorkout(event) {
@@ -53,11 +54,19 @@ class Workout {
     }
     
     static openWorkout() {
+        //select from the drop down
         let selection = document.getElementById('workout-list').value;
+        //find workout id that matches the selection
         let result = Workout.allWorkouts.find(workout => (workout.id === parseInt(selection)));
-        for (let b of result.blocks) {
-            b.renderBlock();
+        // debugger
+        for (let block in result) {
+            // JSON.stringify(result);
+            document.getElementById('main');
+            let bod = document.createElement('p');
+            bod.innerText = block;
+            main.appendChild(bod);
+            debugger
+            // block.renderBlock();
         }
-        
     }
 }

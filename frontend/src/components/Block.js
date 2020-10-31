@@ -33,16 +33,12 @@ class Block {
     }
 
     static removeBlock(blockId) {
-        // debugger
         Block.allBlocks.find(block => block.id === blockId).resetBlockForm();
         document.getElementById(blockId).remove();
         let b = Block.allBlocks.map(block => block.id).indexOf(blockId);
         if (b > -1) {
             Block.allBlocks.splice(b, 1);
         }
-        // debugger
-
-        // document.getElementById(`del-${blockId}`).resetBlockForm();
     }
 
     renderBlock() {
@@ -109,13 +105,12 @@ class Block {
                     //find delete button and point to deleteBlock
                     // btn.addEventListener("click", this.deleteBlock.bind(this));
                 }
-                
+
             //when un-selected
             } else {
                 selected = false;
                 block.style.border = '1px solid black';
                 let btn = document.getElementById(`del-${this.id}`);
-                // debugger
                 btn.style.display = "none";
                 this.resetBlockForm();
                 btn.removeEventListener("click", this.deleteBlock.bind(this));
