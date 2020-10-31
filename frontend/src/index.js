@@ -2,7 +2,7 @@ class Index {
 
   constructor() {
     this.setEventListeners();
-    this.workouts = new Adapter().loadWorkout();
+    this.workouts = new Adapter().loadWorkouts();
   }
 
   setEventListeners() {

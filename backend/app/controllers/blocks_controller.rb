@@ -9,8 +9,6 @@ class BlocksController < ApplicationController
         block = Block.new(block_params)
         if block.save
             render json: block
-        else
-            #error
         end
     end
 
@@ -18,8 +16,6 @@ class BlocksController < ApplicationController
         block = Block.find(params[:id]) 
         if block.update(block_params)
             render json: block
-        else
-            #render error
         end
     end
 

@@ -9,8 +9,6 @@ class WorkoutsController < ApplicationController
         workout = Workout.new(workout_params)
         if workout.save
             render json: workout
-        else
-            #error
         end
     end
 
@@ -29,8 +27,6 @@ class WorkoutsController < ApplicationController
         workout.update(workout_params)
         if workout.save
             render json: workout
-        else
-            #error
         end
     end
 
