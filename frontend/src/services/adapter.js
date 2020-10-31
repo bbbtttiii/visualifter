@@ -15,6 +15,7 @@ class Adapter {
             body: JSON.stringify(newBlock)
         })
         .then(response => response.json())
+        .catch(err => console.log(err))
     }
 
     //to update block when saving workout (not for editing block attributes)
@@ -31,6 +32,7 @@ class Adapter {
             body: JSON.stringify(updatedBlock)
         })
         .then(response => response.json())
+        .catch(err => console.log(err))
     }
 
     //create
@@ -45,6 +47,7 @@ class Adapter {
             body: JSON.stringify(newWorkout)
         })
         .then(response => response.json())
+        .catch(err => console.log(err))
     }
 
     //read
@@ -70,5 +73,6 @@ class Adapter {
                 // Block.removeBlock(blockId);
             }
         })
+        .catch(err => console.log(err))
     }
 }
