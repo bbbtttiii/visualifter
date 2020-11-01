@@ -8,13 +8,13 @@ A weightlifting visualizer: Build and organize workout "blocks".
 - Run `rails db:migrate`
 - Run `rails db:seed`
 - Run `rails s`
-- Go to `index.html` in your browser
+- Open `index.html` in your browser
 
 ## Features
 
 - Create lifts with various rep ranges, sets, and weight loads
 - Arrange "blocks" to visualize work volume and build programs dynamically
-- Modify existing exercises + Save and load workouts
+- Save workouts
 
 ## Contributing
 
