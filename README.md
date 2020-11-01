@@ -5,6 +5,7 @@ A weightlifting visualizer: Build and organize workout "blocks".
 
 - Clone
 - Run `bundle install`
+- Run `cd backend`
 - Run `rails db:migrate`
 - Run `rails db:seed`
 - Run `rails s`
