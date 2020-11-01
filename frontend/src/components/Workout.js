@@ -53,20 +53,16 @@ class Workout {
         list.append(item);
     }
     
-    static openWorkout() {
+    static openWorkout(event) {
+        event.preventDefault();
         //select from the drop down
         let selection = document.getElementById('workout-list').value;
         //find workout id that matches the selection
         let result = Workout.allWorkouts.find(workout => (workout.id === parseInt(selection)));
-        // debugger
-        for (let block in result) {
-            // JSON.stringify(result);
-            document.getElementById('main');
-            let bod = document.createElement('p');
-            bod.innerText = block;
-            main.appendChild(bod);
-            debugger
-            // block.renderBlock();
-        }
+        
+        // for (let b in result) {
+        //     b.renderBlock();
+        //     // debugger
+        // }
     }
 }
