@@ -6,8 +6,6 @@ class Workout {
         this.name = workout.name;
         this.id = workout.id;
         this.blocks = workout.blocks.map(b => new Block(b));
-        // debugger
-        // this.blocks = Block.allBlocks.filter(block => {return block.workoutId == workout.id});
         Workout.allWorkouts.push(this);
     }
 
@@ -16,18 +14,17 @@ class Workout {
         let formValue = {
             name: document.getElementById('workout-input').value,
         };
+        
         new Adapter().createWorkout(formValue).then(workout => {
             let blk = Block.allBlocks.filter(b => !b.workoutId)
             for (let block of blk) {
-                debugger
                 new Adapter().updateBlock(workout.id, block.id)
-
                 block.workoutId = workout.id
             }
             let newWorkout = new Workout(workout);
             newWorkout.listWorkout();
+
             newWorkout.blocks = Block.allBlocks.filter(block => {return block.workoutId == newWorkout.id});
-            // debugger
             let savedForm = document.getElementById('save-workout-form')
             let savedMsg = document.createElement('span');
             savedMsg.innerText = "Saved!";
@@ -38,7 +35,6 @@ class Workout {
             let name = document.getElementsByTagName('h3')[0];
             name.innerText = workout.name;
         });
-        
     }
     
     static listWorkouts() {
@@ -62,6 +58,7 @@ class Workout {
         let selection = document.getElementById('workout-list').value;
         //find workout id that matches the selection
         let result = Workout.allWorkouts.find(workout => (workout.id === parseInt(selection)));
+
         let cont = document.getElementById('main')
         cont.innerHTML = "";
         let name = document.querySelector('h3')

@@ -58,7 +58,10 @@ body {
 }
 
 #main {
-  background-image: url();
+  /* background-image: url('../images/legend.svg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top center; */
   flex: 80%;
   padding: 10px;
 }
@@ -81,7 +84,7 @@ body {
   min-width: 10px;
   border-radius: 50px;
   background-color:#ddd;
-  border: 1px solid #aaa;
+  border: 1px solid #999;
   text-align: center;
 }
 
@@ -102,9 +105,14 @@ body {
   color: blue;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 650px) {
   .sidebar, .row {
     flex-direction: column;
     flex-wrap: wrap;
+  }
+
+  #main {
+    min-height: 300px;
+    overflow: auto;
   }
 }

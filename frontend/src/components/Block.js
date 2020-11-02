@@ -73,7 +73,8 @@ class Block {
             //when selected
             if (selected === false) {
                 selected = true;
-
+                
+                //input values
                 let ex = document.getElementById('exercise');
                 ex.value = this.exercise;
                 let rep = document.getElementById('reps');
@@ -83,7 +84,7 @@ class Block {
                 let wght = document.getElementById('weight');
                 wght.value = this.weight;
 
-                block.style.border = '2px lightyellow solid';
+                block.style.border = '3px lightyellow solid';
 
                 //add delete button if it doesn't exist yet
                 if (!document.getElementById(`del-${this.id}`)) {
@@ -96,14 +97,10 @@ class Block {
                     deleteBtn.style.display = 'inline';
                     //find delete button and point to deleteBlock
                     deleteBtn.addEventListener("click", this.deleteBlock.bind(this));
-
                 } else {
-                    // debugger
                     //make delete button visible
                     let btn = document.getElementById(`del-${this.id}`);
                     btn.style.display = 'inline';
-                    //find delete button and point to deleteBlock
-                    // btn.addEventListener("click", this.deleteBlock.bind(this));
                 }
 
             //when un-selected
@@ -128,13 +125,13 @@ class Block {
         set.value = '';
         let wght = document.getElementById('weight');
         wght.value = '';
-
+        
         //hide delete button
         if (document.getElementById(`del-${this.id}`)) {
             let btn = document.getElementById(`del-${this.id}`)
             btn.style.display = "none";
         }
-
+        
         selected = false;
     }
 
