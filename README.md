@@ -15,7 +15,7 @@ A weightlifting visualizer: Build and organize workout "blocks".
 
 - Create lifts with various rep ranges, sets, and weight loads
 - Arrange "blocks" to visualize work volume and build programs dynamically
-- Save workouts
+- Save and load workouts
 
 ## Contributing
 
