@@ -1,5 +1,4 @@
 class Index {
-
   constructor() {
     this.setEventListeners();
     this.workouts = new Adapter().loadWorkouts();
@@ -14,4 +13,5 @@ class Index {
 }
 
 let selected = false;
+
 new Index();

@@ -9,7 +9,7 @@
 }
 
 body {
-  background-color: slategray;
+  background-color: white;
 }
 
 .header {
@@ -39,6 +39,8 @@ body {
   background-color: #ddd;
   padding: 10px;
   border-radius: 0px 0px 10px 0px;
+  border-bottom: 1px black solid;
+  border-right: 1px black solid;
 }
 
 .sidebar h3 {
@@ -78,7 +80,6 @@ body {
   grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-template-columns: repeat(var(--grid-cols), 1fr);
 }
-
 
 .block-item {
   min-width: 10px;
