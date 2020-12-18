@@ -1,5 +1,5 @@
 # visualifter
-A weightlifting visualizer: Build and organize workout "blocks".
+A weightlifting visualizer: Create lifts with various reps, sets, and weight, then arrange “blocks” to build custom programs.
 
 ## Getting Started
 
