@@ -16,12 +16,14 @@ body {
   background-color: lightblue;
   border-bottom: 1px solid #333;
   text-align:center;
+  height: 80px;
 }
 
 .header h1 {
   margin: 0;
+  padding-top: 10px;
   letter-spacing: 5px;
-  text-align:center;
+  text-align: center;
   font-weight: bold;
   font-family: 'Oxygen', sans-serif;
 }
@@ -32,31 +34,34 @@ body {
 }
 
 .sidebar {
+  margin-left: 15px;
+  margin-top: 15px;
   display:flex;
   flex-direction: column;
-  flex: 20%;
-  height: 100%;
   background-color: #ddd;
   padding: 10px;
-  border-radius: 0px 0px 10px 0px;
-  border-bottom: 1px black solid;
-  border-right: 1px black solid;
+  border: 1px solid #333;
+  /* border-bottom: 1px black solid;
+  border-right: 1px black solid; */
 }
 
 .sidebar h3 {
+  font-size: 2em;
   padding-left: 5px;
+  padding-bottom: 5px;
   font-weight: bold;
   font-family: 'Oxygen', sans-serif;
 }
 
 .sidebar form {
   padding: 10px;
-  border: 1px solid #777;
-  border-radius: 10px;
+  background-color: #ddd;
+  border: 1px solid #333;
 }
 
 .sidebar form input {
   margin-bottom: 8px;
+  padding: 3px;
 }
 
 #main {
@@ -83,8 +88,9 @@ body {
 
 .block-item {
   min-width: 10px;
+  padding: 2px;
   border-radius: 50px;
-  background-color:#ddd;
+  background-color:#eee;
   border: 1px solid #999;
   text-align: center;
 }
@@ -106,10 +112,18 @@ body {
   color: blue;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 600px) {
   .sidebar, .row {
     flex-direction: column;
     flex-wrap: wrap;
+  }
+
+  .sidebar form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    flex-basis: 100%;
   }
 
   #main {

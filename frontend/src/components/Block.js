@@ -115,7 +115,7 @@ class Block {
     })
   }
 
-  // form.reset
+  // form.reset!!!
   resetBlockForm() {
     //clear form fields
     let ex = document.getElementById('exercise');
