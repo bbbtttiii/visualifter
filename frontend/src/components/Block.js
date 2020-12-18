@@ -85,7 +85,7 @@ class Block {
         let wght = document.getElementById('weight');
         wght.value = this.weight;
 
-        block.style.border = '3px lightyellow solid';
+        block.style.border = '3px #333 solid';
 
         //add delete button if it doesn't exist yet
         if (!document.getElementById(`del-${this.id}`)) {
@@ -109,13 +109,13 @@ class Block {
         block.style.border = '1px solid black';
         let btn = document.getElementById(`del-${this.id}`);
         btn.style.display = "none";
-        this.resetBlockForm();
         btn.removeEventListener("click", this.deleteBlock.bind(this));
+        this.resetBlockForm();
       }
     })
   }
 
-  // form.reset!!!
+  // can use form.reset
   resetBlockForm() {
     //clear form fields
     let ex = document.getElementById('exercise');

@@ -4,7 +4,7 @@
 }
 
 * {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   font-family: 'Oxygen', sans-serif;
 }
 
@@ -36,13 +36,13 @@ body {
 .sidebar {
   margin-left: 15px;
   margin-top: 15px;
-  display:flex;
+  display: flex;
   flex-direction: column;
   background-color: #ddd;
-  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
   border: 1px solid #333;
-  /* border-bottom: 1px black solid;
-  border-right: 1px black solid; */
 }
 
 .sidebar h3 {
