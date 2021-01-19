@@ -20,10 +20,12 @@ class Block {
       sets: document.getElementById('sets').value,
       weight: document.getElementById('weight').value
     };
-    new Adapter().createBlock(formValues).then(block => {
-      let newBlock = new Block(block);
-      newBlock.renderBlock();
-    });
+    new Adapter().createBlock(formValues)
+      .then(block => {
+        let newBlock = new Block(block);
+        newBlock.renderBlock();
+      }
+      );
   }
 
   deleteBlock(event) {
@@ -70,7 +72,7 @@ class Block {
 
     //block highlighting
     block.addEventListener("click", (event) => {
-      event.stopPropagation();
+      // event.stopPropagation();
       //when selected
       if (selected === false) {
         selected = true;
@@ -134,6 +136,7 @@ class Block {
     }
 
     selected = false;
+
   }
 
   static drag() {

@@ -69,8 +69,6 @@ class Workout {
 
     for (let b of result.blocks) {
       b.renderBlock();
-      // b.style.left = localStorage.getItem(b.id + '-X') + 'px';
-      // b.style.top = localStorage.getItem(b.id + '-Y') + 'px';
     }
   }
 }
