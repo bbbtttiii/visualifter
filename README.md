@@ -1,6 +1,8 @@
 # visualifter
 A weightlifting visualizer: Create lifts with various reps, sets, and weight, then arrange “blocks” to build custom programs.
 
+![visualifter](frontend/images/visualifter-gif.gif "Visualifter")
+
 ## Getting Started
 
 - Clone
