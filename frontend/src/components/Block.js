@@ -72,7 +72,7 @@ class Block {
 
     //block highlighting
     block.addEventListener("click", (event) => {
-      // event.stopPropagation();
+      event.stopPropagation();
       //when selected
       if (selected === false) {
         selected = true;

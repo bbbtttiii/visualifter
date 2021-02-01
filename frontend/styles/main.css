@@ -1,3 +1,6 @@
+/* @use "@material/button";
+@include button.core-styles; */
+
 :root {
     --grid-cols: 1;
     --grid-rows: 1;
@@ -5,7 +8,7 @@
 
 * {
   /* box-sizing: border-box; */
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'DM Sans', sans-serif;
 }
 
 body {
@@ -16,19 +19,40 @@ body {
 }
 
 .header {
-  background-color: lightblue;
+  background-color: rgb(71, 126, 230);
   border-bottom: 1px solid #333;
-  text-align:center;
+  /* text-align:center; */
   height: 80px;
+  color: white;
 }
+
+/* .h-left {
+  float:left;
+  padding-left: 20px;
+}
+
+.h-right {
+  padding-right: 20px;
+  float: right;
+  text-align: right;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  margin-top: 10px;
+} */
+
+/* .h-right form {
+  display: inline;
+} */
 
 .header h1 {
   margin: 0;
   padding-top: 10px;
-  /* letter-spacing: 5px; */
+  letter-spacing: 3px;
   text-align: center;
-  font-weight: bold;
-  font-family: 'Oxygen', sans-serif;
+  /* font-weight: bold; */
+  font-family: 'Staatliches', sans-serif;
 }
 
 .row {
@@ -45,26 +69,38 @@ body {
   padding-left: 15px;
   padding-right: 15px;
   padding-bottom: 15px;
-  border: 1px solid #333;
+  border: 1px solid #999;
+  border-radius: 10px;
 }
 
 .sidebar h3 {
-  font-size: 2em;
+  font-size: 1.5em;
   padding-left: 5px;
   padding-bottom: 5px;
-  font-weight: bold;
-  font-family: 'Oxygen', sans-serif;
+  /* font-weight: bold; */
+  font-family: 'DM Sans', sans-serif;
 }
 
 .sidebar form {
   padding: 10px;
   background-color: #ddd;
-  border: 1px solid #333;
+  border: 1px solid #999;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
 
-.sidebar form input {
+.sidebar form input[type=text],
+select#workout-list {
   margin-bottom: 8px;
-  padding: 3px;
+  padding: 2px 5px 2px;
+  border-radius: 5px;
+  border: 1px solid #999;
+}
+
+.sidebar form input[type=submit] {
+  padding: 5px 10px 5px;
+  border-radius: 5px;
+  border: 1px solid #999;
 }
 
 #main {
@@ -115,10 +151,13 @@ body {
   color: blue;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 450px) {
+
   .sidebar, .row {
     flex-direction: column;
     flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
   }
 
   .sidebar form {
