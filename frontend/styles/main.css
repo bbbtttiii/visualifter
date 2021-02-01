@@ -113,13 +113,14 @@ select#workout-list {
 }
 
 .block {
+  border-radius: 10px;
   border: 1px solid black;
   cursor: grab;
   font-size: 12px;
   display: grid;
-  padding: 5px;
+  padding: 10px;
   position: absolute;
-  background-color: lightblue;
+  background-color: rgb(71, 126, 230);
   grid-gap: 0.3em;
   grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-template-columns: repeat(var(--grid-cols), 1fr);
@@ -127,18 +128,20 @@ select#workout-list {
 
 .block-item {
   min-width: 10px;
-  padding: 2px;
+  padding: 5px;
   border-radius: 50px;
   background-color:#eee;
-  border: 1px solid #999;
+  font-weight: bold;
+  border: 1px solid #333;
   text-align: center;
 }
 
 .block-label {
-  max-width: 25px;
+  color: white;
+  max-width: 30px;
   text-align: center;
-  font-size: 12px;
-  line-height: 12px;
+  font-size: 16px;
+  line-height: 16px;
   display:block;
   font-weight: bold;
 }
