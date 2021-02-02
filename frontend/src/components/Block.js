@@ -71,8 +71,7 @@ class Block {
     this.resetBlockForm();
 
     //block highlighting
-    block.addEventListener("click", (event) => {
-      // event.stopPropagation();
+    block.addEventListener("click", () => {
       //when selected
       if (selected === false) {
         selected = true;
@@ -177,6 +176,7 @@ class Block {
         // stop moving when mouse button is released:
         document.onmouseup = null;
         document.onmousemove = null;
+        // selected = false;
       }
     }
   }

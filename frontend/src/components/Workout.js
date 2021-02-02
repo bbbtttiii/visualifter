@@ -64,7 +64,7 @@ class Workout {
 
     let cont = document.getElementById('main')
     cont.innerHTML = "";
-    let name = document.querySelector('h3')
+    let name = document.querySelector('h2')
     name.innerText = result.name;
 
     for (let b of result.blocks) {
