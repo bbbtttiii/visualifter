@@ -61,12 +61,18 @@ class Block {
       cell.innerText = this.weight; //put weight inside each cell
       block.appendChild(cell).className = 'block-item'; //append cells to the block, assign block-item class
       container.appendChild(block); //append each outerblock to the container
-      block.setAttribute('padding', w)
     }
 
     let label = document.createElement('span'); //create span called label
     label.innerText = this.exercise; //set label to exercise name
     block.appendChild(label).className = 'block-label'; //append block with label, give class block-label
+
+    // //new delete button
+    // let d = document.createElement('button')
+    // label.appendChild(d).className = 'new-delete-button'
+    // d.innerHTML = "X"
+    // d.id = `del-${this.id}`;
+    // d.addEventListener("click", this.deleteBlock.bind(this));
 
     //enable dragging
     Block.drag();
@@ -89,9 +95,9 @@ class Block {
         let wght = document.getElementById('weight');
         wght.value = this.weight;
 
-        block.style.border = '3px #333 solid';
+        block.style.border = '2px #333 solid';
 
-        //add delete button if it doesn't exist yet
+        // add delete button if it doesn't exist yet
         if (!document.getElementById(`del-${this.id}`)) {
           let form = document.getElementById('block-form');
           let deleteBtn = document.createElement('button');
@@ -107,9 +113,8 @@ class Block {
           btn.style.display = 'inline';
         }
 
-        //when un-selected
+        //when deselected
       } else {
-
         selected = false;
         block.style.border = '1px #999 solid';
         let btn = document.getElementById(`del-${this.id}`);
@@ -132,7 +137,7 @@ class Block {
     let wght = document.getElementById('weight');
     wght.value = '';
 
-    //hide delete button
+    // hide delete button
     if (document.getElementById(`del-${this.id}`)) {
       let btn = document.getElementById(`del-${this.id}`)
       btn.style.display = "none";
@@ -145,7 +150,7 @@ class Block {
   static drag() {
     let draggableElements = document.getElementsByClassName('block');
 
-    for (let i=0; i<draggableElements.length; i++) {
+    for (let i = 0; i < draggableElements.length; i++) {
       dragElement(draggableElements[i]);
     }
 
