@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_10_27_210127) do
     t.string "exercise"
     t.integer "reps"
     t.integer "sets"
-    t.integer "weight"
+    t.float "weight"
     t.integer "workout_id"
   end
 
