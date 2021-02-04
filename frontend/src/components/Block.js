@@ -47,6 +47,8 @@ class Block {
   renderBlock() {
     let container = document.getElementById('main'); //selecting canvas
     let block = document.createElement('div');  //creating inner block div
+    let w = block.offsetHeight.clientX
+    let h = block.offsetWidth.clientY
 
     block.className = 'block'; //assigning block to its class
     block.id = this.id
@@ -59,6 +61,7 @@ class Block {
       cell.innerText = this.weight; //put weight inside each cell
       block.appendChild(cell).className = 'block-item'; //append cells to the block, assign block-item class
       container.appendChild(block); //append each outerblock to the container
+      block.setAttribute('padding', w)
     }
 
     let label = document.createElement('span'); //create span called label
@@ -106,8 +109,9 @@ class Block {
 
         //when un-selected
       } else {
+
         selected = false;
-        block.style.border = '1px solid black';
+        block.style.border = '1px #999 solid';
         let btn = document.getElementById(`del-${this.id}`);
         btn.style.display = "none";
         btn.removeEventListener("click", this.deleteBlock.bind(this));
@@ -141,7 +145,7 @@ class Block {
   static drag() {
     let draggableElements = document.getElementsByClassName('block');
 
-    for (let i = 0; i < draggableElements.length; i++) {
+    for (let i=0; i<draggableElements.length; i++) {
       dragElement(draggableElements[i]);
     }
 

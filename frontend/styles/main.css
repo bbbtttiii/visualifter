@@ -11,13 +11,11 @@
 body {
   background-size: 20px 20px;
   background-image: linear-gradient(to right, #eee 1px, transparent 1px), linear-gradient(to bottom, #eee 1px, transparent 1px);
-
 }
 
 .header {
   background-color: rgb(77, 138, 250);
   border-bottom: 1px solid #333;
-  /* text-align:center; */
   height: 75px;
   color: white;
 }
@@ -46,7 +44,6 @@ display: inline;
   padding-top: 10px;
   letter-spacing: 3px;
   text-align: center;
-  /* font-weight: bold; */
   font-family: 'Staatliches', sans-serif;
 }
 
@@ -103,13 +100,13 @@ display: inline;
 
 .block {
   border-radius: 10px;
-  border: 1px solid #333;
+  border: 1px solid #999;
   cursor: grab;
   font-size: 12px;
   display: grid;
   padding: 10px;
   position: absolute;
-  background-color: rgb(77, 138, 250);
+  background-color: #ddd;
   grid-gap: 0.3em;
   grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-template-columns: repeat(var(--grid-cols), 1fr);
@@ -119,15 +116,16 @@ display: inline;
   min-width: 25px;
   padding: 5px;
   border-radius: 50px;
-  background-color: #eee;
+  background-color: black;
+  color: white;
   font-weight: bold;
-  border: 1px solid #333;
+  /* border: 1px solid #333; */
   text-align: center;
 }
 
 .block-label {
   padding-top: 5px;
-  color: white;
+  color: black;
   max-width: 30px;
   text-align: center;
   font-size: 16px;
