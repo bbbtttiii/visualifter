@@ -47,8 +47,6 @@ class Block {
   renderBlock() {
     let container = document.getElementById('main'); //selecting canvas
     let block = document.createElement('div');  //creating inner block div
-    let w = block.offsetHeight.clientX
-    let h = block.offsetWidth.clientY
 
     block.className = 'block'; //assigning block to its class
     block.id = this.id
@@ -67,20 +65,14 @@ class Block {
     label.innerText = this.exercise; //set label to exercise name
     block.appendChild(label).className = 'block-label'; //append block with label, give class block-label
 
-    // //new delete button
-    // let d = document.createElement('button')
-    // label.appendChild(d).className = 'new-delete-button'
-    // d.innerHTML = "X"
-    // d.id = `del-${this.id}`;
-    // d.addEventListener("click", this.deleteBlock.bind(this));
-
     //enable dragging
     Block.drag();
     //clear the form
     this.resetBlockForm();
 
     //block highlighting
-    block.addEventListener("click", () => {
+    block.addEventListener("click", (event) => {
+      event.stopPropagation();
       //when selected
       if (selected === false) {
         selected = true;
@@ -88,16 +80,16 @@ class Block {
         //input values
         let ex = document.getElementById('exercise');
         ex.value = this.exercise;
-        let rep = document.getElementById('reps');
+        let rep = document.getElementById('reps-output');
         rep.value = this.reps;
-        let set = document.getElementById('sets');
+        let set = document.getElementById('sets-output');
         set.value = this.sets;
         let wght = document.getElementById('weight');
         wght.value = this.weight;
 
-        block.style.border = '2px #333 solid';
+        block.style.borderBottom = '5px teal solid';
 
-        // add delete button if it doesn't exist yet
+        //add delete button if it doesn't exist yet
         if (!document.getElementById(`del-${this.id}`)) {
           let form = document.getElementById('block-form');
           let deleteBtn = document.createElement('button');
@@ -116,7 +108,7 @@ class Block {
         //when deselected
       } else {
         selected = false;
-        block.style.border = '1px #999 solid';
+        block.style.border = '1px solid black';
         let btn = document.getElementById(`del-${this.id}`);
         btn.style.display = "none";
         btn.removeEventListener("click", this.deleteBlock.bind(this));
@@ -137,7 +129,7 @@ class Block {
     let wght = document.getElementById('weight');
     wght.value = '';
 
-    // hide delete button
+    //hide delete button
     if (document.getElementById(`del-${this.id}`)) {
       let btn = document.getElementById(`del-${this.id}`)
       btn.style.display = "none";
@@ -185,7 +177,6 @@ class Block {
         // stop moving when mouse button is released:
         document.onmouseup = null;
         document.onmousemove = null;
-        // selected = false;
       }
     }
   }
