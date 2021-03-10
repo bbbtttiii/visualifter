@@ -16,36 +16,45 @@
 <body>
 
   <div class="header">
-      <h1>Visualifter 1.0</h1>
+    <h1><a href="#">Visualifter 1.0</a></h1>
   </div>
 
   <div class="row">
     <div class="sidebar">
-      <h3>New Workout</h3>
+      <h2>New Workout</h2>
       <form id="block-form">
-        <label>Exercise</label><br>
-        <input type="text" id="exercise" size="20"><br>
-        <label>Repetitions</label><br>
-        <input type="text" id="reps" size="3"><br>
-        <label>Sets</label><br>
-        <input type="text" id="sets" size="3"><br>
+
+        <label>Exercise</label>
+        <input type="text" id="exercise" autocomplete="off">
+
+        <label>Repetitions: </label><span id="reps-output"></span>
+        <div class="slidecontainer">
+          <input type="range" min="1" max="30" value="1" class="slider" id="reps">
+        </div>
+
+        <label>Sets: </label><span id="sets-output"></span>
+        <div class="slidecontainer">
+          <input type="range" min="1" max="10" value="1" class="slider" id="sets">
+        </div>
+
         <label>Weight</label><br>
-        <input type="text" id="weight" size="3"><br>
+        <input type="text" id="weight" autocomplete="off">
         <input type="submit" value="Add">
+
       </form>
-        <form id="save-workout-form">
-          <label>Save workout</label><br>
-          <input type="text" id="workout-input" placeholder="name"><br>
-          <input type="submit" value="Save">
-        </form>
-        <form id="load-workout-form">
-          <label>Load a workout</label><br>
-          <select id="workout-list">
-            <option>-select-</option>
-            <!--saved workout list-->
-          </select><br>
-          <input type="submit" value="Open">
-        </form>
+      <form id="save-workout-form">
+        <label>Save workout</label><br>
+        <input type="text" id="workout-input" placeholder="name" autocomplete="off">
+        <input type="submit" value="Save">
+      </form>
+      <form id="load-workout-form">
+        <label>Load workout</label>
+        <select id="workout-list">
+          <option>-select-</option>
+          <!--saved workout list-->
+        </select><br>
+        <input type="submit" value="Open">
+      </form>
 
     </div>
 
