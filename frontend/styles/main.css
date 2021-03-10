@@ -7,23 +7,25 @@
 }
 
 * {
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
   font-family: 'DM Sans', sans-serif;
 }
 
 body {
+  height: 100%;
+  background-color: #111;
   background-size: 20px 20px;
   background-image:
-    linear-gradient(to right, #eee 1px, transparent 1px),
-    linear-gradient(to bottom, #eee 1px, transparent 1px);
+    linear-gradient(to right, #25252c 1px, transparent 1px),
+    linear-gradient(to bottom, #25252c 1px, transparent 1px);
 }
 
 .header {
-  background-color: rgb(71, 126, 230);
-  border-bottom: 1px solid #333;
-  /* text-align:center; */
+  background-color: #2d2d38;
+  border-bottom: 1px solid #111;
   height: 75px;
   color: white;
+  display: flex;
 }
 
 /* .h-left {
@@ -46,13 +48,16 @@ body {
   display: inline;
 } */
 
-.header h1 {
-  margin: 0;
-  padding-top: 10px;
-  letter-spacing: 3px;
-  text-align: center;
-  /* font-weight: bold; */
+.header h1 a {
+  text-decoration: none;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-left: 20px;
   font-family: 'Staatliches', sans-serif;
+}
+
+.header h1 a:hover {
+  color: #00b5b5;
 }
 
 .row {
@@ -61,46 +66,77 @@ body {
 }
 
 .sidebar {
-  margin-left: 15px;
-  margin-top: 15px;
+  font-size: 1.2em;
+  color: #fff;
+  width: 300px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #ddd;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 15px;
-  border: 1px solid #999;
-  border-radius: 10px;
+  align-items: stretch;
+  background-color: #373945;
+  padding: 20px;
+  /* border: 1px solid #999; */
 }
 
-.sidebar h3 {
-  font-size: 1.5em;
-  padding-left: 5px;
-  padding-bottom: 5px;
+.sidebar h2 {
+  font-size: 1.75em;
+  /* padding-left: 5px; */
+  /* padding-bottom: 5px; */
   font-weight: bold;
   font-family: 'DM Sans', sans-serif;
 }
 
 .sidebar form {
   padding: 10px;
-  background-color: #ddd;
-  border: 1px solid #999;
-  border-radius: 10px;
-  margin-bottom: 15px;
+  border: 1px solid #454753;
+  /* border-radius: 10px; */
+  margin-bottom: 25px;
 }
 
 .sidebar form input[type=text],
 select#workout-list {
-  margin-bottom: 8px;
-  padding: 2px 5px 2px;
-  border-radius: 5px;
-  border: 1px solid #999;
+  background: #464957;
+  width: 100%;
+  margin-bottom: 20px;
+  /* margin-top: 10px; */
+  padding: 5px;
+  /* border-radius: 5px; */
+  border: none;
+  color: white;
 }
 
 .sidebar form input[type=submit] {
   padding: 5px 10px 5px;
-  border-radius: 5px;
-  border: 1px solid #999;
+  /* border-radius: 5px; */
+  outline: none;
+  border: none;
+  width: 100%;
+  background-color: #00a5a5;
+  font-weight: bold;
+  color: white;
+}
+
+.sidebar form input[type=submit]:hover {
+  background-color: #089292;
+}
+
+.sidebar form input[type=submit]:active {
+  background-color: #007575;
+}
+
+.slidecontainer {
+  width: auto;
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+.slider {
+  width: 100%;
+}
+
+#sets-output,
+#reps-output {
+  font-weight: bold;
 }
 
 #main {
@@ -120,19 +156,20 @@ select#workout-list {
   display: grid;
   padding: 10px;
   position: absolute;
-  background-color: rgb(71, 126, 230);
+  background-color: #373945;
   grid-gap: 0.3em;
   grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-template-columns: repeat(var(--grid-cols), 1fr);
 }
 
 .block-item {
+  font-size: 1.2em;
   min-width: 10px;
   padding: 5px;
   border-radius: 50px;
-  background-color:#eee;
+  background-color: #eee;
   font-weight: bold;
-  border: 1px solid #333;
+  border: 1px solid #111;
   text-align: center;
 }
 
@@ -154,7 +191,7 @@ select#workout-list {
   color: blue;
 }
 
-@media (max-width: 450px) {
+/* @media (max-width: 450px) {
 
   .sidebar, .row {
     flex-direction: column;
@@ -175,4 +212,44 @@ select#workout-list {
     min-height: 300px;
     overflow: auto;
   }
+} */
+
+input[type='range'] {
+  -webkit-appearance: none;
+  background-color: #464957;
+  overflow: hidden;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: #2d2d38;
+  border-radius: 50%;
+  box-shadow: -210px 0 0 200px #00b5b5;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  border: 0;
+}
+
+input[type='range']::-moz-range-thumb {
+  background: #2d2d38;
+  border-radius: 50%;
+  box-shadow: -1010px 0 0 1000px #00b5b5;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  border: 0;
+}
+
+input[type="range"]::-moz-range-track {
+  background-color: default;
+}
+input[type="range"]::-moz-range-progress {
+  background-color: #00b5b5;
+}
+input[type="range"]::-ms-fill-upper {
+  background-color: default;
+}
+input[type="range"]::-ms-fill-lower {
+  background-color: #00b5b5;
 }
