@@ -80,14 +80,14 @@ class Block {
         //input values
         let ex = document.getElementById('exercise');
         ex.value = this.exercise;
-        let rep = document.getElementById('reps');
+        let rep = document.getElementById('reps-output');
         rep.value = this.reps;
-        let set = document.getElementById('sets');
+        let set = document.getElementById('sets-output');
         set.value = this.sets;
         let wght = document.getElementById('weight');
         wght.value = this.weight;
 
-        block.style.border = '3px #333 solid';
+        block.style.borderBottom = '5px teal solid';
 
         //add delete button if it doesn't exist yet
         if (!document.getElementById(`del-${this.id}`)) {
@@ -105,7 +105,7 @@ class Block {
           btn.style.display = 'inline';
         }
 
-        //when un-selected
+        //when deselected
       } else {
         selected = false;
         block.style.border = '1px solid black';
