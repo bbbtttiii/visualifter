@@ -1,6 +1,6 @@
 class Adapter {
   constructor() {
-    this.baseUrl = `http://visualifter.herokuapp.com`;
+    this.baseUrl = `https://visualifter.herokuapp.com`;
   }
 
   //create
