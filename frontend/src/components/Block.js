@@ -37,7 +37,7 @@ class Block {
   static removeBlock(blockId) {
     Block.allBlocks.find(block => block.id === blockId).resetBlockForm();
     document.getElementById(blockId).remove();
-    //remove from front end
+    //remove from frontend
     let b = Block.allBlocks.map(block => block.id).indexOf(blockId);
     if (b > -1) {
       Block.allBlocks.splice(b, 1);
@@ -49,9 +49,14 @@ class Block {
     let block = document.createElement('div');  //creating inner block div
 
     block.className = 'block'; //assigning block to its class
-    block.id = this.id
+    block.id = this.id;
 
-    block.style.setProperty('--grid-rows', this.sets); //setting the block rows to the number of reps
+    if (this.reps.value == 0) {
+      block.style.setProperty('--grid-rows', 1);
+    } else {
+      block.style.setProperty('--grid-rows', this.sets); //setting the block rows to the number of reps
+    }
+
     block.style.setProperty('--grid-cols', this.reps); //setting the block cols to the number of sets
 
     for (let c = 0; c < (this.sets * this.reps); c++) { //loop thru
@@ -65,14 +70,32 @@ class Block {
     label.innerText = this.exercise; //set label to exercise name
     block.appendChild(label).className = 'block-label'; //append block with label, give class block-label
 
+    // failure label - fix me
+    if (this.reps.value == 0) {
+      let fail = document.createElement('span');
+      fail.innerText = "To Failure";
+      block.appendChild(fail).className = 'fail-label';
+    }
+
+    //X button
+    let x = document.createElement('button');
+    x.className = "x-btn";
+    x.innerText = "X";
+    x.title = "Delete?"
+    x.addEventListener("click", this.deleteBlock.bind(this));
+    // x.id = `del-${this.id}`;
+    block.parentNode.insertBefore(x, block.nextSibling);
+    block.appendChild(x);
+
+    block.style.borderBottom = '3px teal solid';
+
     //enable dragging
     Block.drag();
     //clear the form
     this.resetBlockForm();
 
     //block highlighting
-    block.addEventListener("click", (event) => {
-      event.stopPropagation();
+    block.addEventListener("click", () => {
       //when selected
       if (selected === false) {
         selected = true;
@@ -80,39 +103,40 @@ class Block {
         //input values
         let ex = document.getElementById('exercise');
         ex.value = this.exercise;
-        let rep = document.getElementById('reps-output');
+        let rep = document.getElementsByClassName('slider')[0];
         rep.value = this.reps;
-        let set = document.getElementById('sets-output');
+        let repsOutput = document.getElementById('reps-output');
+        repsOutput.innerText = this.reps;
+        let set = document.getElementsByClassName('slider')[1];
         set.value = this.sets;
+        let setsOutput = document.getElementById('sets-output');
+        setsOutput.innerText = this.sets;
         let wght = document.getElementById('weight');
         wght.value = this.weight;
 
-        block.style.borderBottom = '5px teal solid';
+        // //add delete button if it doesn't exist yet
+        // if (!document.getElementById(`del-${this.id}`)) {
+        //   let form = document.getElementById('block-form');
+        //   let deleteBtn = document.createElement('button');
+        //   deleteBtn.innerText = "Delete Block";
+        //   deleteBtn.id = `del-${this.id}`;
+        //   form.appendChild(deleteBtn).className = 'delete-button';
+        //   deleteBtn.style.display = 'inline';
+        //   //find delete button and point to deleteBlock
+        //   deleteBtn.addEventListener("click", this.deleteBlock.bind(this));
+        // } else {
+        //   //make delete button visible
+        //   let btn = document.getElementById(`del-${this.id}`);
+        //   btn.style.display = 'inline';
+        // }
 
-        //add delete button if it doesn't exist yet
-        if (!document.getElementById(`del-${this.id}`)) {
-          let form = document.getElementById('block-form');
-          let deleteBtn = document.createElement('button');
-          deleteBtn.innerText = "Delete Block";
-          deleteBtn.id = `del-${this.id}`;
-          form.appendChild(deleteBtn).className = 'delete-button';
-          deleteBtn.style.display = 'inline';
-          //find delete button and point to deleteBlock
-          deleteBtn.addEventListener("click", this.deleteBlock.bind(this));
-        } else {
-          //make delete button visible
-          let btn = document.getElementById(`del-${this.id}`);
-          btn.style.display = 'inline';
-        }
-
-        //when deselected
+      //when deselected
       } else {
         selected = false;
-        block.style.border = '1px solid black';
-        let btn = document.getElementById(`del-${this.id}`);
-        btn.style.display = "none";
-        btn.removeEventListener("click", this.deleteBlock.bind(this));
         this.resetBlockForm();
+        // let btn = document.getElementById(`del-${this.id}`);
+        // btn.style.display = "none";
+        // btn.removeEventListener("click", this.deleteBlock.bind(this));
       }
     })
   }
@@ -123,9 +147,13 @@ class Block {
     let ex = document.getElementById('exercise');
     ex.value = '';
     let rep = document.getElementById('reps');
-    rep.value = '';
+    rep.value = 1;
+    let repsOutput = document.getElementById('reps-output');
+    repsOutput.innerText = '1';
     let set = document.getElementById('sets');
-    set.value = '';
+    set.value = 1;
+    let setsOutput = document.getElementById('sets-output');
+    setsOutput.innerText = '1';
     let wght = document.getElementById('weight');
     wght.value = '';
 
@@ -134,7 +162,6 @@ class Block {
       let btn = document.getElementById(`del-${this.id}`)
       btn.style.display = "none";
     }
-
     selected = false;
 
   }

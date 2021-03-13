@@ -8,7 +8,7 @@
 
 * {
 box-sizing: border-box;
-font-family: 'DM Sans', sans-serif;
+font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -21,7 +21,7 @@ background-image:
 }
 
 .header {
-background-color: #2d2d38;
+background-color: #26262e;
 border-bottom: 1px solid #111;
 height: 75px;
 color: white;
@@ -78,16 +78,14 @@ padding: 20px;
 }
 
 .sidebar h2 {
-font-size: 1.75em;
-/* padding-left: 5px; */
-/* padding-bottom: 5px; */
+font-size: 2em;
 font-weight: bold;
 font-family: 'DM Sans', sans-serif;
 }
 
 .sidebar form {
 padding: 10px;
-border: 1px solid #454753;
+border: 1px solid #4f515e;
 /* border-radius: 10px; */
 margin-bottom: 25px;
 }
@@ -147,47 +145,71 @@ flex: 80%;
 padding: 10px;
 }
 
+#failure-container {
+  float: right;
+}
+
+input[type="checkbox"] {
+  filter: hue-rotate(320deg);
+}
+
 .block {
-border-radius: 10px;
-border: 1px solid black;
-cursor: grab;
-font-size: 12px;
-display: grid;
-padding: 10px;
-position: absolute;
-background-color: #373945;
-grid-gap: 0.3em;
-grid-template-rows: repeat(var(--grid-rows), 1fr);
-grid-template-columns: repeat(var(--grid-cols), 1fr);
+  border-radius: 10px;
+  border: 1px solid black;
+  cursor: grab;
+  font-size: 12px;
+  display: grid;
+  padding: 10px;
+  position: absolute;
+  background-color: #373945;
+  grid-gap: 0.3em;
+  grid-template-rows: repeat(var(--grid-rows), 1fr);
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
 }
 
 .block-item {
-font-size: 1.2em;
-min-width: 10px;
-padding: 5px;
-border-radius: 50px;
-background-color: #eee;
-font-weight: bold;
-border: 1px solid #111;
-text-align: center;
+  font-size: 1em;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 50px;
+  background-color: #ddd;
+  font-weight: bold;
+  border: 1px solid #333;
+  text-align: center;
 }
 
-.block-label {
-color: white;
-max-width: 30px;
-text-align: center;
-font-size: 16px;
-line-height: 16px;
-display:block;
-font-weight: bold;
-}
-
-.delete-button {
-color: red;
+.block-label,
+.fail-label {
+  background-color: #373945;
+  color: white;
+  max-width: 30px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 16px;
+  display: block;
+  font-weight: bold;
 }
 
 .message {
-color: blue;
+  display: block;
+  margin-top: 15px;
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.x-btn {
+  text-align: center;
+  align-items: center;
+  position: relative;
+  left: 50px;
+  color: red;
+  font-weight: bold;
+  font-size: 1.25em;
+  width: 25px;
+  height: 25px;
+  padding: 0;
 }
 
 /* @media (max-width: 450px) {

@@ -12,21 +12,39 @@ class Index {
   }
 }
 
-//show slider value
+//get slider values
 let repsSlider = document.getElementById("reps");
 let repsOutput = document.getElementById("reps-output");
 let setsSlider = document.getElementById("sets");
 let setsOutput = document.getElementById("sets-output");
-repsOutput.innerHTML = repsSlider.value; // Display the default slider value
-setsOutput.innerHTML = setsSlider.value; // Display the default slider value
 
-// Update the current slider value (each time you drag the slider handle)
+// Display the default slider values
+repsOutput.innerHTML = repsSlider.value; 
+setsOutput.innerHTML = setsSlider.value;
+
+// Update the current slider values
 repsSlider.oninput = function() {
   repsOutput.innerHTML = this.value;
 }
 
 setsSlider.oninput = function() {
   setsOutput.innerHTML = this.value;
+}
+
+//failure option
+function toF() {
+  let failureText = document.getElementById('failure')
+  let failBtn = document.getElementById('fail-checkbox');
+  let text = document.getElementById("reps-output");
+
+  if (failBtn.checked == true) {
+    repsSlider.value = 0;
+    text.innerHTML = "To Failure";
+    failureText.style.display = "none";
+  } else {
+    text.innerHTML = repsSlider.value;
+    failureText.style.display = "inline";
+  }
 }
 
 let selected = false;

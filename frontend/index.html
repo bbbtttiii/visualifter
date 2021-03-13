@@ -9,8 +9,9 @@
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -27,7 +28,12 @@
           <label>Exercise</label>
           <input type="text" id="exercise" autocomplete="off">
 
-          <label>Repetitions: </label><span id="reps-output"></span>
+          <label>Reps: </label><span id="reps-output"></span>
+          <span id="failure-container">
+            <label id="failure">To Failure</label>
+            <input id="fail-checkbox" type="checkbox" title="To Failure" onClick="toF()">
+          </span>
+
           <div class="slidecontainer">
             <input type="range" min="1" max="30" value="1" class="slider" id="reps">
           </div>

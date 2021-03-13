@@ -15,7 +15,19 @@ class Workout {
       name: document.getElementById('workout-input').value,
     };
 
+    if (!this.name) {
+      let savedForm = document.getElementById('save-workout-form')
+      let blankMsg = document.createElement('span');
+      blankMsg.innerText = "Name cannot be blank";
+      savedForm.appendChild(blankMsg).className = 'message';
+
+      setTimeout(function() {
+        blankMsg.style.display = "none";
+      }, 5000);
+    }
+
     new Adapter().createWorkout(formValue).then(workout => {
+      //blk = any block that isn't associated with a workout
       let blk = Block.allBlocks.filter(b => !b.workoutId)
       for (let block of blk) {
         new Adapter().updateBlock(workout.id, block.id)
@@ -26,7 +38,7 @@ class Workout {
       let newWorkout = new Workout(workout);
       newWorkout.listWorkout();
 
-      newWorkout.blocks = Block.allBlocks.filter(block => { return block.workoutId == newWorkout.id });
+      newWorkout.blocks = Block.allBlocks.filter(b => { return b.workoutId == newWorkout.id });
 
       let savedForm = document.getElementById('save-workout-form')
       let savedMsg = document.createElement('span');
@@ -35,7 +47,11 @@ class Workout {
       let savedInput = document.getElementById('workout-input')
       savedInput.value = '';
 
-      let name = document.getElementsByTagName('h3')[0];
+      setTimeout(function() {
+        savedMsg.style.display = "none";
+      }, 5000);
+
+      let name = document.getElementsByTagName('h2')[0];
       name.innerText = workout.name;
     });
   }
@@ -59,8 +75,20 @@ class Workout {
     event.preventDefault();
     //select from the drop down
     let selection = document.getElementById('workout-list').value;
+
     //find workout id that matches the selection
     let result = Workout.allWorkouts.find(workout => (workout.id === parseInt(selection)));
+
+    if (!result) {
+      let loadForm = document.getElementById('load-workout-form')
+      let loadMsg = document.createElement('span');
+      loadMsg.innerText = "No workout selected";
+      loadForm.appendChild(loadMsg).className = 'message';
+
+      setTimeout(function() {
+        loadMsg.style.display = "none";
+      }, 5000);
+    }
 
     let cont = document.getElementById('main')
     cont.innerHTML = "";
