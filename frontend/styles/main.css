@@ -28,25 +28,6 @@ color: white;
 display: flex;
 }
 
-/* .h-left {
-float:left;
-padding-left: 20px;
-}
-.h-right {
-padding-right: 20px;
-float: right;
-text-align: right;
-display: flex;
-justify-content: center;
-align-content: center;
-flex-direction: column;
-margin-top: 10px;
-} */
-
-/* .h-right form {
-display: inline;
-} */
-
 .header h1 a {
 text-decoration: none;
 margin: 0 auto;
@@ -137,10 +118,6 @@ font-weight: bold;
 }
 
 #main {
-/* background-image: url('../images/legend.svg');
-background-repeat: no-repeat;
-background-attachment: fixed;
-background-position: top center; */
 flex: 80%;
 padding: 10px;
 }
@@ -231,6 +208,8 @@ input[type="checkbox"] {
   overflow: auto;
 }
 } */
+
+/* slider styles */
 
 input[type='range'] {
 -webkit-appearance: none;
