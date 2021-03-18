@@ -64,7 +64,6 @@ class Adapter {
 
   //delete
   deleteBlock(blockId) {
-    // debugger
     return fetch(`${this.baseUrl}/blocks/${blockId}`, {
       method: "DELETE"
     })
