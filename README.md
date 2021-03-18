@@ -1,7 +1,7 @@
 # visualifter
 A weightlifting visualizer: Create lifts with various reps, sets, and weight, then arrange blocks to build custom programs.
 
-Live demo: (https://visualifter.netlify.app)
+Live demo: https://visualifter.netlify.app
 
 ![visualifter](frontend/images/visualifter-gif.gif "Visualifter")
 
