@@ -7,7 +7,8 @@ Live demo: https://visualifter.netlify.app
 
 ## Getting Started
 
-- Clone
+To use locally:
+- Clone this repository
 - Run `cd backend`
 - Run `bundle install`
 - Run `rails db:migrate`
