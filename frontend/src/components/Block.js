@@ -20,6 +20,7 @@ class Block {
       sets: document.getElementById('sets').value,
       weight: document.getElementById('weight').value
     };
+    
     new Adapter().createBlock(formValues)
       .then(block => {
         let newBlock = new Block(block);
@@ -45,6 +46,7 @@ class Block {
   }
 
   renderBlock() {
+
     let container = document.getElementById('main'); //selecting canvas
     let block = document.createElement('div');  //creating inner block div
 
@@ -70,24 +72,23 @@ class Block {
     label.innerText = this.exercise; //set label to exercise name
     block.appendChild(label).className = 'block-label'; //append block with label, give class block-label
 
-    // failure label - fix me
-    if (this.reps.value == 0) {
-      let fail = document.createElement('span');
-      fail.innerText = "To Failure";
-      block.appendChild(fail).className = 'fail-label';
+    // failure label
+    if (toF === true) {
+      let fail = document.createElement('div');
+      let name = document.getElementByClassName('block-label');
+      fail.innerHTML = "To Failure";
+      name.appendChild(fail).className = 'fail-label';
     }
 
     //X button
     let x = document.createElement('button');
     x.className = "x-btn";
     x.innerText = "X";
-    x.title = "Delete?"
+    x.title = "Delete block?"
     x.addEventListener("click", this.deleteBlock.bind(this));
     // x.id = `del-${this.id}`;
     block.parentNode.insertBefore(x, block.nextSibling);
     block.appendChild(x);
-
-    block.style.borderBottom = '3px teal solid';
 
     //enable dragging
     Block.drag();
@@ -114,29 +115,10 @@ class Block {
         let wght = document.getElementById('weight');
         wght.value = this.weight;
 
-        // //add delete button if it doesn't exist yet
-        // if (!document.getElementById(`del-${this.id}`)) {
-        //   let form = document.getElementById('block-form');
-        //   let deleteBtn = document.createElement('button');
-        //   deleteBtn.innerText = "Delete Block";
-        //   deleteBtn.id = `del-${this.id}`;
-        //   form.appendChild(deleteBtn).className = 'delete-button';
-        //   deleteBtn.style.display = 'inline';
-        //   //find delete button and point to deleteBlock
-        //   deleteBtn.addEventListener("click", this.deleteBlock.bind(this));
-        // } else {
-        //   //make delete button visible
-        //   let btn = document.getElementById(`del-${this.id}`);
-        //   btn.style.display = 'inline';
-        // }
-
       //when deselected
       } else {
         selected = false;
         this.resetBlockForm();
-        // let btn = document.getElementById(`del-${this.id}`);
-        // btn.style.display = "none";
-        // btn.removeEventListener("click", this.deleteBlock.bind(this));
       }
     })
   }

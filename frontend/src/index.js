@@ -33,12 +33,13 @@ setsSlider.oninput = function() {
 
 //failure option
 function toF() {
+  let toF = false;
   let failureText = document.getElementById('failure')
   let failBtn = document.getElementById('fail-checkbox');
   let text = document.getElementById("reps-output");
 
   if (failBtn.checked == true) {
-    repsSlider.value = 0;
+    toF = true;
     text.innerHTML = "To Failure";
     failureText.style.display = "none";
   } else {
